@@ -19,7 +19,7 @@ ui <- dashboardPage(
     tags$li(
       class = "dropdown",
       tags$a(
-        href = "YOUR_GITHUB_SOURCE_CODE_LINK",
+        href = "https://raw.githubusercontent.com/ChingyiLam/STA-553-Project-5/refs/heads/main/app.R",
         target = "_blank",
         icon("code"),
         " Source Code",
