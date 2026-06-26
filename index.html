@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ching Yi Lam" />
 
-<meta name="date" content="2026-06-23" />
+<meta name="date" content="2026-06-25" />
 
 <title>Who Is Most Likely to Default? An Interactive Exploration of Borrower Risk</title>
 
@@ -1598,7 +1598,7 @@ border-radius: 0px;
 <h1 class="title toc-ignore">Who Is Most Likely to Default? An
 Interactive Exploration of Borrower Risk</h1>
 <h4 class="author">Ching Yi Lam</h4>
-<h4 class="date">2026-06-23</h4>
+<h4 class="date">2026-06-25</h4>
 
 </div>
 
@@ -1772,39 +1772,69 @@ box-shadow: 0 2px 8px rgba(110, 48, 97, 0.08);
 </style>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>Loan default is a major concern for financial institutions because it
-directly affects profitability, risk management, and lending decisions.
-Understanding the characteristics associated with borrower default can
-help banks identify high-risk applicants and develop more effective
-lending strategies.</p>
-<p>This project presents an interactive Shiny dashboard designed to
-explore patterns in borrower behavior and loan default outcomes. The
-dashboard allows users to dynamically filter borrowers by credit score,
-loan amount, and gender while visualizing differences between borrowers
-who defaulted and those who successfully repaid their loans. Through
-interactive visualizations and summary statistics, the dashboard
-provides insights into the factors that may contribute to loan default
-risk.</p>
-<p>The dashboard was developed using R Shiny and Plotly. Interactive
-filters allow users to dynamically explore borrower characteristics and
-default behavior. The dashboard combines summary statistics,
-visualizations, and a searchable data table to support exploratory
-analysis and facilitate understanding of borrower risk patterns.</p>
+<p>Loan default is one of the most significant financial risks faced by
+banks and lending institutions. Every approved loan carries uncertainty
+regarding whether the borrower will repay the loan according to the
+agreed terms. High default rates reduce profitability, increase
+financial losses, and require lenders to strengthen their risk
+management strategies. Consequently, identifying the characteristics
+associated with loan default has become an essential component of modern
+credit risk assessment.</p>
+<p>Traditional statistical reports often summarize borrower information
+using static tables and charts. Although useful, static reports provide
+limited flexibility for exploring different borrower groups. Interactive
+dashboards overcome this limitation by allowing users to dynamically
+filter data and immediately observe how borrower characteristics change
+across different subsets of the population. Such dashboards support
+exploratory data analysis, improve decision-making, and help communicate
+complex information more effectively.</p>
+<p>This project develops an interactive Shiny dashboard to explore
+borrower characteristics associated with loan default. The dashboard
+enables users to investigate relationships between borrower
+demographics, financial characteristics, and loan repayment outcomes
+using interactive visualizations. Users may filter borrowers according
+to credit score, loan amount, gender, and employment status while
+viewing summary statistics, graphical comparisons, and individual
+borrower records.</p>
+<p>The dashboard was developed using R Shiny, shinydashboard, Plotly,
+and DT. Interactive value boxes provide an immediate summary of the
+selected borrower population, while multiple interactive visualizations
+illustrate important patterns within the data. The overall objective is
+to transform raw borrower information into meaningful insights that
+assist financial institutions in understanding borrower risk and making
+more informed lending decisions.</p>
 </div>
 <div id="data-source-and-description" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Data Source and
 Description</h1>
-<p>The analysis uses the <em>Bank Loan Default Dataset</em>, which
-contains borrower demographic, financial, and loan-related information.
-The primary objective is to investigate factors associated with loan
-default behavior.</p>
+<p>The analysis uses the <strong>Bank Loan Default Dataset</strong>,
+which contains borrower demographic information, financial
+characteristics, existing loan obligations, and loan repayment outcomes.
+The dataset consists of <strong>1,000 borrower records</strong> and is
+designed to support analyses of factors associated with loan
+default.</p>
+<p>The response variable is <strong>Default</strong>, indicating whether
+a borrower successfully repaid the loan or defaulted.</p>
 <p><strong>Response Variable</strong>:</p>
-<p>Default</p>
-<ul>
-<li>Indicates whether a borrower defaulted on a loan.</li>
-<li>No Default = Loan successfully repaid</li>
-<li>Default = Loan not repaid according to agreed terms</li>
-</ul>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Default</td>
+<td>Indicates whether the borrower defaulted on the loan (Default / No
+Default)</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Explanatory Variables</strong>:</p>
 <p>The dataset contains several borrower characteristics, including:</p>
 <table>
@@ -1879,13 +1909,39 @@ characteristics. Together, they help explain potential differences
 between borrowers who default and those who successfully repay their
 loans.</p>
 </div>
-<div id="interactive-dashboard-and-data-exploration" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Interactive Dashboard
-and Data Exploration</h1>
+<div id="dashboard-oveview" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Dashboard Oveview</h1>
+<p>The dashboard was designed to provide a clean, intuitive, and
+interactive interface for exploring borrower risk. Users can investigate
+different borrower groups by applying multiple filters and immediately
+observe how summary statistics and visualizations change.</p>
+<p>The dashboard includes four interactive filters:</p>
+<ul>
+<li>Credit Score Range</li>
+<li>Loan Amount Range</li>
+<li>Gender</li>
+<li>Employment Status</li>
+</ul>
+<p>The dashboard contains the following components:</p>
+<ul>
+<li>Interactive Value Boxes</li>
+<li>Number of Borrowers by Default Status</li>
+<li>Credit Score by Default Status</li>
+<li>Loan Amount Distribution by Default Status</li>
+<li>Default Rate by Employment Status</li>
+<li>Interactive Data Table</li>
+</ul>
+<p>Each component contributes to a comprehensive understanding of
+borrower characteristics while allowing users to explore relationships
+between financial variables and loan default.</p>
+</div>
+<div id="interactive-dashboard" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Interactive
+Dashboard</h1>
 <p>The interactive Shiny dashboard is embedded below. Users can adjust
 the credit score, loan amount, and gender filters to explore how
 borrower characteristics are associated with loan default behavior.</p>
-<p>The interactive dashboard is available at: <a href="https://chingyilam.shinyapps.io/Project5/" class="uri">https://chingyilam.shinyapps.io/Project5/</a></p>
+<p>The interactive dashboard is available at: <a href="https://chingyilam.shinyapps.io/ShinyAppProject/" class="uri">https://chingyilam.shinyapps.io/ShinyAppProject/</a></p>
 <p>Users can interact with the dashboard through three filters:</p>
 <ul>
 <li>Credit Score Range</li>
@@ -1903,77 +1959,140 @@ borrower characteristics are associated with loan default behavior.</p>
 <p>These components work together to help users identify patterns
 associated with borrower default behavior and support data-driven
 decision-making.</p>
-<iframe src="https://chingyilam.shinyapps.io/Project5/" width="672" height="1500px" data-external="1">
+<p>The dashboard also provides direct links to the project report,
+source code, and original data source through the dashboard header,
+making it easy for users to access all project resources.</p>
+<iframe src="https://chingyilam.shinyapps.io/ShinyAppProject/" width="672" height="1600px" data-external="1">
 </iframe>
+<div id="dashboard-filters" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Dashboard
+Filters</h2>
+<p>Users may interactively filter the borrower population using four
+controls located in the left sidebar.</p>
+<p><strong>Credit Score</strong>: Users can restrict the analysis to
+borrowers within a selected credit score range. This allows comparison
+of repayment behavior among borrowers with weaker or stronger credit
+histories.</p>
+<p><strong>Loan Amount</strong>: Users can examine borrowers requesting
+different loan sizes. The dashboard immediately updates every
+visualization based on the selected loan amount range.</p>
+<p><strong>Gender</strong>: Users may compare borrower behavior across
+gender groups or view the complete dataset.</p>
+<p><strong>Employment Status</strong>: Employment status provides
+additional context regarding financial stability. Users can compare
+borrower risk across employment categories while simultaneously applying
+the remaining filters.</p>
+<p>Because all filters operate together, the dashboard supports highly
+flexible exploration of borrower characteristics.</p>
 </div>
-<div id="interpretation-of-dashboard-visualizations" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Interpretation of
+</div>
+<div id="narrative-of-the-story" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Narrative of the
+Story</h1>
+<p>The primary question explored in this project is:</p>
+<p><em>Who is most likely to default on a loan?</em></p>
+<p>Financial institutions evaluate many borrower characteristics before
+approving a loan. However, understanding which characteristics are most
+strongly associated with default can help improve lending decisions and
+reduce financial risk.</p>
+<p>This dashboard guides users through a sequence of visualizations that
+gradually answer this question.</p>
+<p>The dashboard begins by presenting summary indicators describing the
+current borrower population. Users then compare the number of default
+and non-default borrowers before examining how credit score, loan
+amount, and employment status differ between the two groups. Finally,
+users can inspect the individual borrower records using the interactive
+data table.</p>
+<p>Instead of presenting isolated charts, the dashboard encourages users
+to build an overall understanding of borrower risk through interactive
+exploration. As filters are applied, every visualization updates
+automatically, allowing users to investigate how different borrower
+groups compare.</p>
+</div>
+<div id="interpretation-of-dashboard-visualizations" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Interpretation of
 Dashboard Visualizations</h1>
-<div id="summary-statistics" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Summary
-Statistics</h2>
-<p>The summary section provides a high-level overview of the selected
-borrower group. It displays the number of borrowers, average credit
-score, average loan amount, and default rate after applying the selected
-filters. These statistics allow users to quickly understand the overall
-characteristics of the borrower population before exploring the detailed
-visualizations.</p>
-<p>In the full dataset, there are 1,000 borrowers with an average credit
-score of approximately 760 and an average loan amount of about $1,219.
-The overall default rate is 30%, indicating that nearly one-third of
-borrowers in the dataset failed to repay their loans.</p>
-</div>
-<div id="number-of-borrowers-by-default-status" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Number of Borrowers
-by Default Status</h2>
-<p>The bar chart compares the number of borrowers who defaulted and
-those who successfully repaid their loans.</p>
-<p>The visualization shows that approximately 700 borrowers did not
-default, while about 300 borrowers defaulted. This indicates that the
-majority of borrowers successfully met their loan obligations. The chart
-provides an overall view of the distribution of loan outcomes and
-highlights that default cases represent a smaller but still substantial
-portion of the dataset.</p>
-<p>This information is important because it establishes the baseline
-level of risk within the borrower population and provides context for
-interpreting the remaining visualizations.</p>
-</div>
-<div id="credit-score-by-default-status" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Credit Score by
-Default Status</h2>
-<p>The boxplot compares the distribution of credit scores between
-default and non-default borrowers.</p>
-<p>Several important patterns emerge from this visualization:</p>
+<div id="interactive-summary" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Interactive
+Summary</h2>
+<p>The dashboard begins with four interactive value boxes that summarize
+the currently selected borrower population.</p>
+<p>These indicators include:</p>
 <ul>
-<li>Borrowers who did not default generally have higher credit
-scores.</li>
-<li>The median credit score for non-default borrowers is noticeably
-higher than that of default borrowers.</li>
-<li>Default borrowers exhibit greater variability in credit scores.</li>
-<li>Although some overlap exists between the two groups, lower credit
-scores appear more frequently among default borrowers.</li>
+<li>Total Number of Borrowers</li>
+<li>Average Credit Score</li>
+<li>Average Loan Amount</li>
+<li>Default Rate</li>
 </ul>
-<p>These findings suggest that credit score is an important indicator of
-borrower reliability and repayment behavior. The relationship observed
-in the visualization is consistent with real-world lending practices,
-where higher credit scores are associated with lower lending risk.</p>
+<p>Unlike a static report, these values update instantly whenever
+filters are changed.The value boxes provide users with an immediate
+overview of the selected borrower population before they examine the
+detailed visualizations. For example, narrowing the credit score range
+immediately changes the reported default rate, allowing users to observe
+how borrower risk varies across different credit profiles.</p>
 </div>
-<div id="loan-amount-distribution-by-default-status" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Loan Amount
-Distribution by Default Status</h2>
-<p>The histogram compares the distribution of loan amounts for default
+<div id="number-of-borrowers-by-default-status" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Number of Borrowers
+by Default Status</h2>
+<p>The first visualization compares the number of borrowers who
+successfully repaid their loans with those who defaulted. The dashboard
+shows that the majority of borrowers successfully repay their loans,
+while approximately one-third experience default. Although default
+borrowers represent the smaller group, they account for a substantial
+portion of the overall borrower population. This highlights the
+importance of identifying characteristics associated with default before
+loans are approved. The bar chart establishes the baseline distribution
+of loan outcomes and provides context for interpreting the remaining
+visualizations.</p>
+</div>
+<div id="credit-score-by-default-status" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Credit Score by
+Default Status</h2>
+<p>The boxplot compares the distribution of credit scores for default
 and non-default borrowers.</p>
-<p>The distributions overlap considerably, indicating that both groups
-borrow similar loan amounts. However, slight differences can be observed
-across certain loan ranges. While loan amount alone does not appear to
-strongly distinguish default borrowers from non-default borrowers, it
-may still contribute to default risk when considered alongside other
-financial characteristics.</p>
-<p>The visualization suggests that borrower creditworthiness may be a
-stronger predictor of default than loan size by itself.</p>
+<p>Several important observations emerge. Borrowers who successfully
+repay their loans generally have higher credit scores than borrowers who
+default. The median credit score of non-default borrowers is
+substantially higher than that of default borrowers. Although the two
+distributions overlap, borrowers with lower credit scores appear
+considerably more likely to default. These findings support the widely
+accepted principle that credit score is one of the strongest indicators
+of borrower reliability. Credit score appears to separate the two
+borrower groups more clearly than the remaining financial variables
+displayed in the dashboard.</p>
 </div>
-<div id="interactive-data-table" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Interactive Data
+<div id="loan-amount-distribution-by-default-status" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Loan Amount
+Distribution by Default Status</h2>
+<p>The histogram compares the distribution of loan amounts between
+default and non-default borrowers.</p>
+<p>The two distributions overlap considerably. Borrowers from both
+repayment groups request similar loan amounts across much of the
+observed range. Although certain loan ranges contain slightly higher
+concentrations of default borrowers, loan amount alone does not appear
+sufficient for distinguishing borrowers who eventually default. Instead,
+loan amount should be interpreted together with other borrower
+characteristics, such as credit score and employment status. This
+visualization demonstrates that financial risk depends on multiple
+factors rather than any single variable.</p>
+</div>
+<div id="default-rate-by-employment-status" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Default Rate by
+Employment Status</h2>
+<p>The employment status chart provides another perspective on borrower
+risk.</p>
+<p>Rather than focusing on borrower creditworthiness alone, this
+visualization compares the percentage of default borrowers across
+different employment categories. Employment status may influence a
+borrower’s ability to make consistent loan payments because individuals
+with stable employment often have more predictable income. The chart
+allows users to determine whether certain employment groups exhibit
+relatively higher default rates after accounting for the selected
+dashboard filters. Combined with credit score, employment status
+provides a more complete understanding of borrower risk.</p>
+</div>
+<div id="interactive-data-table" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Interactive Data
 table</h2>
 <p>The data table allows users to inspect individual borrower records
 after applying filters. Unlike the summary statistics and
@@ -1984,55 +2103,150 @@ specific borrower profiles and better understand the factors associated
 with loan default. This feature enhances transparency and supports
 detailed exploration of the dataset.</p>
 </div>
-<div id="overall-findings" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Overall Findings</h2>
-<p>The dashboard reveals several key insights regarding borrower
-risk:</p>
+</div>
+<div id="key-findings" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Key Findings</h1>
+<p>Several important insights emerge from the dashboard.</p>
 <ul>
-<li>Most borrowers in the dataset successfully repay their loans.</li>
-<li>Borrowers who default tend to have lower credit scores.</li>
-<li>Credit score appears to be one of the strongest indicators of
+<li>Approximately 70% of borrowers successfully repay their loans, while
+roughly 30% default.</li>
+<li>Credit score appears to be one of the strongest characteristics
+associated with borrower default.</li>
+<li>Borrowers with lower credit scores consistently exhibit higher
 default risk.</li>
-<li>Loan amount alone shows limited ability to distinguish between
-default and non-default borrowers.</li>
-<li>Interactive filtering allows users to explore how borrower
-characteristics influence default patterns across different segments of
-the population.</li>
+<li>Loan amount alone provides relatively limited information regarding
+repayment outcomes because default and non-default borrowers exhibit
+similar loan distributions.</li>
+<li>Employment status contributes additional information that may help
+explain borrower risk.</li>
+<li>Interactive filtering allows users to investigate borrower behavior
+across many demographic and financial subgroups.</li>
 </ul>
-<p>The dashboard demonstrates that borrower creditworthiness plays an
-important role in loan repayment outcomes and provides a useful tool for
-exploring patterns of financial risk.</p>
+<p>These findings demonstrate that borrower creditworthiness is more
+informative than loan size when assessing default risk. The dashboard
+enables users to explore these relationships interactively rather than
+relying solely on static summary statistics, making it a valuable tool
+for understanding borrower behavior and supporting data-driven lending
+decisions.</p>
 </div>
+<div id="business-implications-and-recommendations" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Business Implications
+and Recommendations</h1>
+<p>The findings from this dashboard have several practical implications
+for financial institutions and lending organizations. Although the
+dashboard is designed primarily as an exploratory data analysis tool
+rather than a predictive model, it highlights borrower characteristics
+that may assist in improving lending decisions and managing financial
+risk.</p>
+<p>The visualizations suggest that credit score is one of the strongest
+indicators of loan default. Borrowers with lower credit scores
+consistently demonstrate higher default rates than borrowers with
+stronger credit histories. This finding supports current lending
+practices in which credit scores are used as a major component of credit
+approval and risk assessment.</p>
+<p>The dashboard also indicates that loan amount alone is not a strong
+predictor of default. The substantial overlap between the loan amount
+distributions of default and non-default borrowers suggests that lenders
+should avoid making lending decisions based solely on the size of the
+requested loan. Instead, loan amount should be evaluated alongside
+additional borrower characteristics, including credit history,
+employment status, income stability, and existing financial
+obligations.</p>
+<p>Employment status provides another useful perspective on borrower
+risk. Although employment status alone does not determine repayment
+behavior, borrowers with stable employment generally have more
+consistent income sources, which may reduce the likelihood of default.
+Combining employment information with credit-related variables allows
+lenders to develop a more comprehensive understanding of borrower
+risk.</p>
+<p>The interactive nature of the dashboard allows decision makers to
+investigate borrower behavior under different filtering conditions. Loan
+officers, financial analysts, and managers can quickly examine specific
+borrower groups without generating separate reports, making the
+dashboard a practical tool for exploratory analysis and
+communication.</p>
+<p>Based on the findings presented in this project, the following
+recommendations are proposed:</p>
+<ul>
+<li>Continue using credit score as a primary indicator when evaluating
+loan applications.</li>
+<li>Consider multiple borrower characteristics simultaneously rather
+than relying on a single variable.</li>
+<li>Use interactive dashboards during credit risk reviews to support
+data-driven decision making.</li>
+<li>Incorporate additional financial variables, such as annual income,
+debt-to-income ratio, payment history, and loan purpose, in future
+analyses to improve understanding of borrower behavior.</li>
+<li>Develop predictive machine learning or statistical models using
+these variables to estimate the probability of loan default for new
+applicants.</li>
+</ul>
 </div>
-<div id="conclusion" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Conclusion</h1>
-<p>This project developed an interactive Shiny dashboard to explore the
-factors associated with loan default risk. By combining summary
-statistics, interactive filters, visualizations, and a searchable data
-table, the dashboard provides users with an effective tool for
-investigating borrower characteristics and repayment outcomes.</p>
-<p>The analysis revealed that credit score is one of the most important
-factors associated with loan default. Borrowers who defaulted generally
-exhibited lower credit scores than those who successfully repaid their
-loans. In contrast, loan amount showed considerable overlap between
-default and non-default borrowers, suggesting that loan size alone may
-not be a strong indicator of default risk. These findings highlight the
-importance of evaluating borrower creditworthiness when assessing
-lending decisions.</p>
-<p>The interactive design of the dashboard allows users to explore how
-borrower risk changes across different credit score ranges, loan
-amounts, and demographic groups. This flexibility provides deeper
-insight than static reports and supports data-driven
-decision-making.</p>
-<p>The dashboard successfully answers the question, “Who Is Most Likely
-to Default?” by demonstrating that borrowers with weaker credit profiles
-are generally at greater risk of default. The project illustrates how
-interactive data visualization can transform loan data into meaningful
-insights that help financial institutions better understand and manage
-borrower risk.</p>
+<div id="limitations" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Limitations</h1>
+<p>Several limitations should be considered when interpreting the
+results of this project.</p>
+<p>First, the dashboard is intended for exploratory data analysis rather
+than predictive modeling. Although it reveals important relationships
+between borrower characteristics and loan default, it does not estimate
+the probability that an individual borrower will default.</p>
+<p>Second, the analysis is based on a single dataset containing
+approximately 1,000 borrower records. The results may not fully
+represent all borrower populations or lending institutions. Different
+financial organizations may serve customers with different demographic
+and financial characteristics.</p>
+<p>Third, the dashboard focuses on a limited number of borrower
+variables. Other factors that commonly influence default risk such as
+annual income, debt-to-income ratio, payment history, interest rate,
+loan purpose, or macroeconomic conditions are not included in this
+dataset. Incorporating these variables could provide a more complete
+understanding of borrower behavior.</p>
+<p>Finally, the observed relationships describe associations rather than
+causal effects. While borrowers with lower credit scores exhibit higher
+default rates, the dashboard alone cannot establish that low credit
+scores directly cause loan default.</p>
+<p>Despite these limitations, the dashboard provides an effective
+framework for interactive exploration of borrower risk and demonstrates
+how visualization techniques can support financial decision-making.</p>
+</div>
+<div id="conclusion" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Conclusion</h1>
+<p>This project developed an interactive Shiny dashboard to investigate
+factors associated with loan default risk using the Bank Loan Default
+Dataset. The dashboard combines interactive filtering, summary value
+boxes, multiple visualizations, and an interactive data table to provide
+users with an intuitive platform for exploring borrower characteristics
+and repayment outcomes.</p>
+<p>The analysis demonstrates that credit score is one of the most
+informative indicators of borrower risk. Borrowers with lower credit
+scores generally exhibit higher default rates than borrowers with
+stronger credit histories. In contrast, loan amount alone provides
+relatively limited information because both default and non-default
+borrowers borrow similar amounts across much of the observed range.
+Employment status contributes additional context and can be explored
+interactively alongside other borrower characteristics.</p>
+<p>A major strength of the dashboard is its interactivity. Users can
+dynamically filter the borrower population by credit score, loan amount,
+gender, and employment status while immediately observing how the
+summary indicators and visualizations change. This flexibility allows
+users to explore borrower behavior from multiple perspectives and better
+understand the relationships among demographic characteristics,
+financial variables, and loan repayment outcomes.</p>
+<p>Overall, the dashboard successfully addresses the project’s central
+question: <em>Who is most likely to default on a loan?</em></p>
+<p>The results suggest that borrowers with weaker credit profiles are
+generally more likely to default, while loan amount by itself provides
+relatively little predictive information. By transforming raw borrower
+data into interactive visualizations, the dashboard enables financial
+institutions to better understand borrower risk, communicate analytical
+findings, and support more informed lending decisions.</p>
+<p>This project demonstrates the value of interactive data visualization
+in financial analytics and illustrates how modern dashboard technologies
+can transform complex datasets into practical decision-support
+tools.</p>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIldobyBJcyBNb3N0IExpa2VseSB0byBEZWZhdWx0PyBBbiBJbnRlcmFjdGl2ZSBFeHBsb3JhdGlvbiBvZiBCb3Jyb3dlciBSaXNrIg0KYXV0aG9yOiAiQ2hpbmcgWWkgTGFtIg0KZGF0ZTogImByIFN5cy5EYXRlKClgIg0Kb3V0cHV0OiANCiAgaHRtbF9kb2N1bWVudDogDQogICAgdGhlbWU6IHlldGkNCiAgICB0b2M6IHllcw0KICAgIHRvY19kZXB0aDogNA0KICAgIHRvY19mbG9hdDogeWVzDQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMNCiAgICB0b2NfY29sbGFwc2VkOiB5ZXMNCiAgICBjb2RlX2ZvbGRpbmc6IGhpZGUNCiAgICBjb2RlX2Rvd25sb2FkOiB5ZXMNCiAgICBzbW9vdGhfc2Nyb2xsOiB5ZXMNCiAgICBoaWdobGlnaHQ6IHRhbmdvDQotLS0NCg0KYGBge2NzcyBlY2hvID0gRkFMU0V9DQovKiA9PT09PT09PT09PT0gQ1NTIFN0eWxpbmcgZm9yIExlY3R1cmUgTm90ZXMgPT09PT09PT09PT09ICovDQoNCmJvZHkgew0KICBmb250LWZhbWlseTogJ1NlZ29lIFVJJywgJ0ludGVyJywgc3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmOw0KICBsaW5lLWhlaWdodDogMS43Ow0KICBjb2xvcjogIzJkMWIyOTsNCiAgYmFja2dyb3VuZC1jb2xvcjogI2ZkZmFmZDsNCn0NCg0KI1RPQzo6YmVmb3JlIHsNCiAgY29udGVudDogIlRhYmxlIG9mIENvbnRlbnRzIjsNCiAgZm9udC13ZWlnaHQ6IGJvbGQ7DQogIGZvbnQtc2l6ZTogMS4yZW07DQogIGRpc3BsYXk6IGJsb2NrOw0KICBjb2xvcjogbmF2eTsNCiAgbWFyZ2luLWJvdHRvbTogMTBweDsNCn0NCg0KDQpkaXYjVE9DIGxpIHsgICAgIC8qIHRhYmxlIG9mIGNvbnRlbnQgICovDQogICAgbGlzdC1zdHlsZTp1cHBlci1yb21hbjsNCiAgICBiYWNrZ3JvdW5kLWltYWdlOm5vbmU7DQogICAgYmFja2dyb3VuZC1yZXBlYXQ6bm9uZTsNCiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOjA7DQogICAgLypmb250LXdlaWdodDogYm9sZDsgKi8NCiAgICBmb250LXNpemU6IDEuMWVtOw0KICAgIGZvbnQtd2VpZ2h0OiA1MDA7DQogICAgY29sb3I6ICM2RTMwNjE7DQp9DQoNCg0KaDEudGl0bGUgew0KICBmb250LXNpemU6IDI2cHg7DQogIGNvbG9yOiAjNkUzMDYxOw0KICB0ZXh0LWFsaWduOiBsZWZ0Ow0KfQ0KDQpoNC5hdXRob3IgeyAvKiBIZWFkZXIgNCAtIGFuZCB0aGUgYXV0aG9yIGFuZCBkYXRhIGhlYWRlcnMgdXNlIHRoaXMgdG9vICAqLw0KICBmb250LXNpemU6IDE4cHg7DQogIC8qZm9udC1mYW1pbHk6ICJUaW1lcyBOZXcgUm9tYW4iLCBUaW1lcywgc2VyaWY7Ki8NCiAgY29sb3I6ICM2RTMwNjE7DQogIHRleHQtYWxpZ246IGxlZnQ7DQp9DQpoNC5kYXRlIHsgLyogSGVhZGVyIDQgLSBhbmQgdGhlIGF1dGhvciBhbmQgZGF0YSBoZWFkZXJzIHVzZSB0aGlzIHRvbyAgKi8NCiAgZm9udC1zaXplOiAxOHB4Ow0KICAvKmZvbnQtZmFtaWx5OiAiVGltZXMgTmV3IFJvbWFuIiwgVGltZXMsIHNlcmlmOyovDQogIGNvbG9yOiAjNkUzMDYxOw0KICB0ZXh0LWFsaWduOiBsZWZ0Ow0KfQ0KDQoNCmgxIHsNCiAgY29sb3I6ICM2RTMwNjE7DQogIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAjNkUzMDYxOw0KICBwYWRkaW5nLWJvdHRvbTogOHB4Ow0KICBtYXJnaW4tdG9wOiA0MHB4Ow0KICBmb250LXdlaWdodDogYm9sZDsNCiAgZm9udC1zaXplOiAyLjJyZW07DQp9DQoNCmgyIHsNCiAgY29sb3I6ICM2RTMwNjE7DQogIGJvcmRlci1sZWZ0OiA1cHggc29saWQgIzZFMzA2MTsNCiAgcGFkZGluZy1sZWZ0OiAxMnB4Ow0KICBtYXJnaW4tdG9wOiAzMHB4Ow0KICBmb250LXdlaWdodDogYm9sZDsNCiAgZm9udC1zaXplOiAxLjhyZW07DQp9DQoNCmgzIHsNCiAgY29sb3I6ICM4YjRhN2Q7DQogIG1hcmdpbi10b3A6IDI0cHg7DQogIGZvbnQtd2VpZ2h0OiBib2xkOw0KICBmb250LXNpemU6IDEuOG07DQp9DQoNCmg0IHsNCiAgY29sb3I6ICNhMDVmOTI7DQogIG1hcmdpbi10b3A6IDE4cHg7DQogIGZvbnQtd2VpZ2h0OiBib2xkOw0KICBmb250LXNpemU6IDEuNHJlbTsNCn0NCg0KY29kZSB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmNGVkZjM7DQogIGNvbG9yOiAjNGEyMDQwOw0KICBwYWRkaW5nOiAycHggNnB4Ow0KICBib3JkZXItcmFkaXVzOiA0cHg7DQogIGZvbnQtZmFtaWx5OiAnRmlyYSBDb2RlJywgJ0pldEJyYWlucyBNb25vJywgJ0NvbnNvbGFzJywgbW9ub3NwYWNlOw0KICBmb250LXNpemU6IDAuOWVtOw0KICBib3JkZXI6IDFweCBzb2xpZCAjZDRjMGQxOw0KfQ0KDQpwcmUgew0KICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmNWY5Ow0KICBib3JkZXI6IDFweCBzb2xpZCAjZDRjMGQxOw0KICBib3JkZXItbGVmdDogNHB4IHNvbGlkICM2RTMwNjE7DQogIGJvcmRlci1yYWRpdXM6IDZweDsNCiAgcGFkZGluZzogMTRweDsNCn0NCg0KcHJlIGNvZGUgew0KICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsNCiAgYm9yZGVyOiBub25lOw0KICBwYWRkaW5nOiAwOw0KfQ0KDQpibG9ja3F1b3RlIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogI2Y0ZWRmMzsNCiAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjNkUzMDYxOw0KICBwYWRkaW5nOiAxMnB4IDE4cHg7DQogIG1hcmdpbjogMTZweCAwOw0KICBib3JkZXItcmFkaXVzOiAwIDZweCA2cHggMDsNCiAgY29sb3I6ICM0YTIwNDA7DQp9DQoNCi5ub3RlLWJveCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmMGU2ZWU7DQogIGJvcmRlcjogMXB4IHNvbGlkICNjNDliYjg7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW46IDE4cHggMDsNCn0NCg0KLm5vdGUtYm94IHN0cm9uZyB7DQogIGNvbG9yOiAjNkUzMDYxOw0KfQ0KDQoudGlwLWJveCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNlOGY1ZTk7DQogIGJvcmRlcjogMXB4IHNvbGlkICM4MWM3ODQ7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW46IDE4cHggMDsNCn0NCg0KLnRpcC1ib3ggc3Ryb25nIHsNCiAgY29sb3I6ICMyZTdkMzI7DQp9DQoNCi53YXJuaW5nLWJveCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmZmYzZTA7DQogIGJvcmRlcjogMXB4IHNvbGlkICNmZmI3NGQ7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW46IDE4cHggMDsNCn0NCg0KLndhcm5pbmctYm94IHN0cm9uZyB7DQogIGNvbG9yOiAjZTY1MTAwOw0KfQ0KDQp0YWJsZSB7DQogIHdpZHRoOiAxMDAlOw0KICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOw0KICBtYXJnaW46IDE2cHggMDsNCn0NCg0KdGFibGUgdGggew0KICBiYWNrZ3JvdW5kLWNvbG9yOiAjNkUzMDYxOw0KICBjb2xvcjogd2hpdGU7DQogIHBhZGRpbmc6IDEwcHggMTJweDsNCiAgdGV4dC1hbGlnbjogbGVmdDsNCiAgZm9udC13ZWlnaHQ6IDYwMDsNCn0NCg0KdGFibGUgdGQgew0KICBwYWRkaW5nOiA4cHggMTJweDsNCiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkNGMwZDE7DQp9DQoNCnRhYmxlIHRyOm50aC1jaGlsZChldmVuKSB0ZCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmYWY1Zjk7DQp9DQoNCnRhYmxlIHRyOmhvdmVyIHRkIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogI2YwZTZlZTsNCn0NCg0KLnRvYyB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmYWY1Zjk7DQogIGJvcmRlcjogMXB4IHNvbGlkICNkNGMwZDE7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW4tYm90dG9tOiAyNHB4Ow0KfQ0KDQouZmlndXJlIHsNCiAgYm9yZGVyOiAxcHggc29saWQgI2UwZDFkYjsNCiAgYm9yZGVyLXJhZGl1czogOHB4Ow0KICBwYWRkaW5nOiA4cHg7DQogIG1hcmdpbjogMTZweCAwOw0KICBib3gtc2hhZG93OiAwIDJweCA4cHggcmdiYSgxMTAsIDQ4LCA5NywgMC4wOCk7DQp9DQpgYGANCg0KDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFLCAgICAgICANCiAgICAgICAgICAgICAgICAgICAgICB3YXJuaW5nID0gRkFMU0UsICAgDQogICAgICAgICAgICAgICAgICAgICAgcmVzdWx0ID0gVFJVRSwgICANCiAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlID0gRkFMU0UsDQogICAgICAgICAgICAgICAgICAgICAgY29tbWVudCA9IE5BKQ0KYGBgDQoNCiMgSW50cm9kdWN0aW9uDQoNCkxvYW4gZGVmYXVsdCBpcyBhIG1ham9yIGNvbmNlcm4gZm9yIGZpbmFuY2lhbCBpbnN0aXR1dGlvbnMgYmVjYXVzZSBpdCBkaXJlY3RseSBhZmZlY3RzIHByb2ZpdGFiaWxpdHksIHJpc2sgbWFuYWdlbWVudCwgYW5kIGxlbmRpbmcgZGVjaXNpb25zLiBVbmRlcnN0YW5kaW5nIHRoZSBjaGFyYWN0ZXJpc3RpY3MgYXNzb2NpYXRlZCB3aXRoIGJvcnJvd2VyIGRlZmF1bHQgY2FuIGhlbHAgYmFua3MgaWRlbnRpZnkgaGlnaC1yaXNrIGFwcGxpY2FudHMgYW5kIGRldmVsb3AgbW9yZSBlZmZlY3RpdmUgbGVuZGluZyBzdHJhdGVnaWVzLg0KDQpUaGlzIHByb2plY3QgcHJlc2VudHMgYW4gaW50ZXJhY3RpdmUgU2hpbnkgZGFzaGJvYXJkIGRlc2lnbmVkIHRvIGV4cGxvcmUgcGF0dGVybnMgaW4gYm9ycm93ZXIgYmVoYXZpb3IgYW5kIGxvYW4gZGVmYXVsdCBvdXRjb21lcy4gVGhlIGRhc2hib2FyZCBhbGxvd3MgdXNlcnMgdG8gZHluYW1pY2FsbHkgZmlsdGVyIGJvcnJvd2VycyBieSBjcmVkaXQgc2NvcmUsIGxvYW4gYW1vdW50LCBhbmQgZ2VuZGVyIHdoaWxlIHZpc3VhbGl6aW5nIGRpZmZlcmVuY2VzIGJldHdlZW4gYm9ycm93ZXJzIHdobyBkZWZhdWx0ZWQgYW5kIHRob3NlIHdobyBzdWNjZXNzZnVsbHkgcmVwYWlkIHRoZWlyIGxvYW5zLiBUaHJvdWdoIGludGVyYWN0aXZlIHZpc3VhbGl6YXRpb25zIGFuZCBzdW1tYXJ5IHN0YXRpc3RpY3MsIHRoZSBkYXNoYm9hcmQgcHJvdmlkZXMgaW5zaWdodHMgaW50byB0aGUgZmFjdG9ycyB0aGF0IG1heSBjb250cmlidXRlIHRvIGxvYW4gZGVmYXVsdCByaXNrLg0KDQpUaGUgZGFzaGJvYXJkIHdhcyBkZXZlbG9wZWQgdXNpbmcgUiBTaGlueSBhbmQgUGxvdGx5LiBJbnRlcmFjdGl2ZSBmaWx0ZXJzIGFsbG93IHVzZXJzIHRvIGR5bmFtaWNhbGx5IGV4cGxvcmUgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFuZCBkZWZhdWx0IGJlaGF2aW9yLiBUaGUgZGFzaGJvYXJkIGNvbWJpbmVzIHN1bW1hcnkgc3RhdGlzdGljcywgdmlzdWFsaXphdGlvbnMsIGFuZCBhIHNlYXJjaGFibGUgZGF0YSB0YWJsZSB0byBzdXBwb3J0IGV4cGxvcmF0b3J5IGFuYWx5c2lzIGFuZCBmYWNpbGl0YXRlIHVuZGVyc3RhbmRpbmcgb2YgYm9ycm93ZXIgcmlzayBwYXR0ZXJucy4NCg0KIyBEYXRhIFNvdXJjZSBhbmQgRGVzY3JpcHRpb24NCg0KVGhlIGFuYWx5c2lzIHVzZXMgdGhlICpCYW5rIExvYW4gRGVmYXVsdCBEYXRhc2V0Kiwgd2hpY2ggY29udGFpbnMgYm9ycm93ZXIgZGVtb2dyYXBoaWMsIGZpbmFuY2lhbCwgYW5kIGxvYW4tcmVsYXRlZCBpbmZvcm1hdGlvbi4gVGhlIHByaW1hcnkgb2JqZWN0aXZlIGlzIHRvIGludmVzdGlnYXRlIGZhY3RvcnMgYXNzb2NpYXRlZCB3aXRoIGxvYW4gZGVmYXVsdCBiZWhhdmlvci4NCg0KKipSZXNwb25zZSBWYXJpYWJsZSoqOg0KDQpEZWZhdWx0IA0KDQoqIEluZGljYXRlcyB3aGV0aGVyIGEgYm9ycm93ZXIgZGVmYXVsdGVkIG9uIGEgbG9hbi4NCiogTm8gRGVmYXVsdCA9IExvYW4gc3VjY2Vzc2Z1bGx5IHJlcGFpZA0KKiBEZWZhdWx0ID0gTG9hbiBub3QgcmVwYWlkIGFjY29yZGluZyB0byBhZ3JlZWQgdGVybXMNCg0KKipFeHBsYW5hdG9yeSBWYXJpYWJsZXMqKjoNCg0KVGhlIGRhdGFzZXQgY29udGFpbnMgc2V2ZXJhbCBib3Jyb3dlciBjaGFyYWN0ZXJpc3RpY3MsIGluY2x1ZGluZzoNCg0KfCBWYXJpYWJsZSAgICAgICAgICB8IERlc2NyaXB0aW9uICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQp8IC0tLS0tLS0tLS0tLS0tLS0tIHwgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHwNCnwgQWdlICAgICAgICAgICAgICAgfCBCb3Jyb3dlcidzIGFnZSBpbiB5ZWFycyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCBHZW5kZXIgICAgICAgICAgICB8IEJvcnJvd2VyJ3MgZ2VuZGVyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQp8IE1hcml0YWxfc3RhdHVzICAgIHwgTWFyaXRhbCBzdGF0dXMgb2YgdGhlIGJvcnJvd2VyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgRW1wbG95bWVudF9zdGF0dXMgfCBFbXBsb3ltZW50IHN0YXR1cyBvZiB0aGUgYm9ycm93ZXIgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCBDcmVkaXRfc2NvcmUgICAgICB8IENyZWRpdCBzY29yZSB1c2VkIHRvIGFzc2VzcyBjcmVkaXR3b3J0aGluZXNzICAgICAgICAgICAgICAgICB8DQp8IEFtb3VudCAgICAgICAgICAgIHwgTG9hbiBhbW91bnQgcmVxdWVzdGVkIG9yIGFwcHJvdmVkICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgVGVybSAgICAgICAgICAgICAgfCBMb2FuIHJlcGF5bWVudCB0ZXJtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCBDaGVja2luZ19hbW91bnQgICB8IEJhbGFuY2UgaW4gdGhlIGJvcnJvd2VyJ3MgY2hlY2tpbmcgYWNjb3VudCAgICAgICAgICAgICAgICAgICB8DQp8IFNhdmluZ19hbW91bnQgICAgIHwgQmFsYW5jZSBpbiB0aGUgYm9ycm93ZXIncyBzYXZpbmdzIGFjY291bnQgICAgICAgICAgICAgICAgICAgIHwNCnwgQ2FyX2xvYW4gICAgICAgICAgfCBJbmRpY2F0ZXMgd2hldGhlciB0aGUgYm9ycm93ZXIgY3VycmVudGx5IGhhcyBhIGNhciBsb2FuICAgICAgfA0KfCBQZXJzb25hbF9sb2FuICAgICB8IEluZGljYXRlcyB3aGV0aGVyIHRoZSBib3Jyb3dlciBjdXJyZW50bHkgaGFzIGEgcGVyc29uYWwgbG9hbiB8DQp8IEhvbWVfbG9hbiAgICAgICAgIHwgSW5kaWNhdGVzIHdoZXRoZXIgdGhlIGJvcnJvd2VyIGN1cnJlbnRseSBoYXMgYSBob21lIGxvYW4gICAgIHwNCnwgRWR1Y2F0aW9uX2xvYW4gICAgfCBJbmRpY2F0ZXMgd2hldGhlciB0aGUgYm9ycm93ZXIgY3VycmVudGx5IGhhcyBhbiBlZHVjYXRpb24gbG9hbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KDQoNClRoZXNlIHZhcmlhYmxlcyBwcm92aWRlIGluZm9ybWF0aW9uIGFib3V0IGJvcnJvd2VyIGRlbW9ncmFwaGljcywgZmluYW5jaWFsIHJlc291cmNlcywgZXhpc3RpbmcgZGVidCBvYmxpZ2F0aW9ucywgYW5kIGxvYW4gY2hhcmFjdGVyaXN0aWNzLiBUb2dldGhlciwgdGhleSBoZWxwIGV4cGxhaW4gcG90ZW50aWFsIGRpZmZlcmVuY2VzIGJldHdlZW4gYm9ycm93ZXJzIHdobyBkZWZhdWx0IGFuZCB0aG9zZSB3aG8gc3VjY2Vzc2Z1bGx5IHJlcGF5IHRoZWlyIGxvYW5zLg0KDQojIEludGVyYWN0aXZlIERhc2hib2FyZCBhbmQgRGF0YSBFeHBsb3JhdGlvbg0KDQpUaGUgaW50ZXJhY3RpdmUgU2hpbnkgZGFzaGJvYXJkIGlzIGVtYmVkZGVkIGJlbG93LiBVc2VycyBjYW4gYWRqdXN0IHRoZSBjcmVkaXQgc2NvcmUsIGxvYW4gYW1vdW50LCBhbmQgZ2VuZGVyIGZpbHRlcnMgdG8gZXhwbG9yZSBob3cgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFyZSBhc3NvY2lhdGVkIHdpdGggbG9hbiBkZWZhdWx0IGJlaGF2aW9yLg0KDQpUaGUgaW50ZXJhY3RpdmUgZGFzaGJvYXJkIGlzIGF2YWlsYWJsZSBhdDoNCmh0dHBzOi8vY2hpbmd5aWxhbS5zaGlueWFwcHMuaW8vUHJvamVjdDUvDQoNClVzZXJzIGNhbiBpbnRlcmFjdCB3aXRoIHRoZSBkYXNoYm9hcmQgdGhyb3VnaCB0aHJlZSBmaWx0ZXJzOg0KDQoqIENyZWRpdCBTY29yZSBSYW5nZQ0KKiBMb2FuIEFtb3VudCBSYW5nZQ0KKiBHZW5kZXINCg0KVGhlIGRhc2hib2FyZCBjb250YWlucyBmb3VyIHByaW1hcnkgY29tcG9uZW50czoNCg0KKiBTdW1tYXJ5IFN0YXRpc3RpY3MNCiogTnVtYmVyIG9mIEJvcnJvd2VycyBieSBEZWZhdWx0IFN0YXR1cw0KKiBDcmVkaXQgU2NvcmUgYnkgRGVmYXVsdCBTdGF0dXMNCiogTG9hbiBBbW91bnQgRGlzdHJpYnV0aW9uIGJ5IERlZmF1bHQgU3RhdHVzDQoqIEludGVyYWN0aXZlIERhdGEgVGFibGUNCg0KVGhlc2UgY29tcG9uZW50cyB3b3JrIHRvZ2V0aGVyIHRvIGhlbHAgdXNlcnMgaWRlbnRpZnkgcGF0dGVybnMgYXNzb2NpYXRlZCB3aXRoIGJvcnJvd2VyIGRlZmF1bHQgYmVoYXZpb3IgYW5kIHN1cHBvcnQgZGF0YS1kcml2ZW4gZGVjaXNpb24tbWFraW5nLg0KDQpgYGB7ciwgZWNobz1GQUxTRX0NCmtuaXRyOjppbmNsdWRlX3VybCgiaHR0cHM6Ly9jaGluZ3lpbGFtLnNoaW55YXBwcy5pby9Qcm9qZWN0NS8iLCANCiAgICBoZWlnaHQgPSAiMTUwMHB4IikNCmBgYA0KDQojIEludGVycHJldGF0aW9uIG9mIERhc2hib2FyZCBWaXN1YWxpemF0aW9ucw0KDQojIyBTdW1tYXJ5IFN0YXRpc3RpY3MNCg0KVGhlIHN1bW1hcnkgc2VjdGlvbiBwcm92aWRlcyBhIGhpZ2gtbGV2ZWwgb3ZlcnZpZXcgb2YgdGhlIHNlbGVjdGVkIGJvcnJvd2VyIGdyb3VwLiBJdCBkaXNwbGF5cyB0aGUgbnVtYmVyIG9mIGJvcnJvd2VycywgYXZlcmFnZSBjcmVkaXQgc2NvcmUsIGF2ZXJhZ2UgbG9hbiBhbW91bnQsIGFuZCBkZWZhdWx0IHJhdGUgYWZ0ZXIgYXBwbHlpbmcgdGhlIHNlbGVjdGVkIGZpbHRlcnMuIFRoZXNlIHN0YXRpc3RpY3MgYWxsb3cgdXNlcnMgdG8gcXVpY2tseSB1bmRlcnN0YW5kIHRoZSBvdmVyYWxsIGNoYXJhY3RlcmlzdGljcyBvZiB0aGUgYm9ycm93ZXIgcG9wdWxhdGlvbiBiZWZvcmUgZXhwbG9yaW5nIHRoZSBkZXRhaWxlZCB2aXN1YWxpemF0aW9ucy4NCg0KSW4gdGhlIGZ1bGwgZGF0YXNldCwgdGhlcmUgYXJlIDEsMDAwIGJvcnJvd2VycyB3aXRoIGFuIGF2ZXJhZ2UgY3JlZGl0IHNjb3JlIG9mIGFwcHJveGltYXRlbHkgNzYwIGFuZCBhbiBhdmVyYWdlIGxvYW4gYW1vdW50IG9mIGFib3V0ICQxLDIxOS4gVGhlIG92ZXJhbGwgZGVmYXVsdCByYXRlIGlzIDMwJSwgaW5kaWNhdGluZyB0aGF0IG5lYXJseSBvbmUtdGhpcmQgb2YgYm9ycm93ZXJzIGluIHRoZSBkYXRhc2V0IGZhaWxlZCB0byByZXBheSB0aGVpciBsb2Fucy4NCg0KIyMgTnVtYmVyIG9mIEJvcnJvd2VycyBieSBEZWZhdWx0IFN0YXR1cw0KDQpUaGUgYmFyIGNoYXJ0IGNvbXBhcmVzIHRoZSBudW1iZXIgb2YgYm9ycm93ZXJzIHdobyBkZWZhdWx0ZWQgYW5kIHRob3NlIHdobyBzdWNjZXNzZnVsbHkgcmVwYWlkIHRoZWlyIGxvYW5zLg0KDQpUaGUgdmlzdWFsaXphdGlvbiBzaG93cyB0aGF0IGFwcHJveGltYXRlbHkgNzAwIGJvcnJvd2VycyBkaWQgbm90IGRlZmF1bHQsIHdoaWxlIGFib3V0IDMwMCBib3Jyb3dlcnMgZGVmYXVsdGVkLiBUaGlzIGluZGljYXRlcyB0aGF0IHRoZSBtYWpvcml0eSBvZiBib3Jyb3dlcnMgc3VjY2Vzc2Z1bGx5IG1ldCB0aGVpciBsb2FuIG9ibGlnYXRpb25zLiBUaGUgY2hhcnQgcHJvdmlkZXMgYW4gb3ZlcmFsbCB2aWV3IG9mIHRoZSBkaXN0cmlidXRpb24gb2YgbG9hbiBvdXRjb21lcyBhbmQgaGlnaGxpZ2h0cyB0aGF0IGRlZmF1bHQgY2FzZXMgcmVwcmVzZW50IGEgc21hbGxlciBidXQgc3RpbGwgc3Vic3RhbnRpYWwgcG9ydGlvbiBvZiB0aGUgZGF0YXNldC4NCg0KVGhpcyBpbmZvcm1hdGlvbiBpcyBpbXBvcnRhbnQgYmVjYXVzZSBpdCBlc3RhYmxpc2hlcyB0aGUgYmFzZWxpbmUgbGV2ZWwgb2YgcmlzayB3aXRoaW4gdGhlIGJvcnJvd2VyIHBvcHVsYXRpb24gYW5kIHByb3ZpZGVzIGNvbnRleHQgZm9yIGludGVycHJldGluZyB0aGUgcmVtYWluaW5nIHZpc3VhbGl6YXRpb25zLg0KDQojIyBDcmVkaXQgU2NvcmUgYnkgRGVmYXVsdCBTdGF0dXMNCg0KVGhlIGJveHBsb3QgY29tcGFyZXMgdGhlIGRpc3RyaWJ1dGlvbiBvZiBjcmVkaXQgc2NvcmVzIGJldHdlZW4gZGVmYXVsdCBhbmQgbm9uLWRlZmF1bHQgYm9ycm93ZXJzLg0KDQpTZXZlcmFsIGltcG9ydGFudCBwYXR0ZXJucyBlbWVyZ2UgZnJvbSB0aGlzIHZpc3VhbGl6YXRpb246DQoNCiogQm9ycm93ZXJzIHdobyBkaWQgbm90IGRlZmF1bHQgZ2VuZXJhbGx5IGhhdmUgaGlnaGVyIGNyZWRpdCBzY29yZXMuDQoqIFRoZSBtZWRpYW4gY3JlZGl0IHNjb3JlIGZvciBub24tZGVmYXVsdCBib3Jyb3dlcnMgaXMgbm90aWNlYWJseSBoaWdoZXIgdGhhbiB0aGF0IG9mIGRlZmF1bHQgYm9ycm93ZXJzLg0KKiBEZWZhdWx0IGJvcnJvd2VycyBleGhpYml0IGdyZWF0ZXIgdmFyaWFiaWxpdHkgaW4gY3JlZGl0IHNjb3Jlcy4NCiogQWx0aG91Z2ggc29tZSBvdmVybGFwIGV4aXN0cyBiZXR3ZWVuIHRoZSB0d28gZ3JvdXBzLCBsb3dlciBjcmVkaXQgc2NvcmVzIGFwcGVhciBtb3JlIGZyZXF1ZW50bHkgYW1vbmcgZGVmYXVsdCBib3Jyb3dlcnMuDQoNClRoZXNlIGZpbmRpbmdzIHN1Z2dlc3QgdGhhdCBjcmVkaXQgc2NvcmUgaXMgYW4gaW1wb3J0YW50IGluZGljYXRvciBvZiBib3Jyb3dlciByZWxpYWJpbGl0eSBhbmQgcmVwYXltZW50IGJlaGF2aW9yLiBUaGUgcmVsYXRpb25zaGlwIG9ic2VydmVkIGluIHRoZSB2aXN1YWxpemF0aW9uIGlzIGNvbnNpc3RlbnQgd2l0aCByZWFsLXdvcmxkIGxlbmRpbmcgcHJhY3RpY2VzLCB3aGVyZSBoaWdoZXIgY3JlZGl0IHNjb3JlcyBhcmUgYXNzb2NpYXRlZCB3aXRoIGxvd2VyIGxlbmRpbmcgcmlzay4NCg0KIyMgTG9hbiBBbW91bnQgRGlzdHJpYnV0aW9uIGJ5IERlZmF1bHQgU3RhdHVzDQoNClRoZSBoaXN0b2dyYW0gY29tcGFyZXMgdGhlIGRpc3RyaWJ1dGlvbiBvZiBsb2FuIGFtb3VudHMgZm9yIGRlZmF1bHQgYW5kIG5vbi1kZWZhdWx0IGJvcnJvd2Vycy4NCg0KVGhlIGRpc3RyaWJ1dGlvbnMgb3ZlcmxhcCBjb25zaWRlcmFibHksIGluZGljYXRpbmcgdGhhdCBib3RoIGdyb3VwcyBib3Jyb3cgc2ltaWxhciBsb2FuIGFtb3VudHMuIEhvd2V2ZXIsIHNsaWdodCBkaWZmZXJlbmNlcyBjYW4gYmUgb2JzZXJ2ZWQgYWNyb3NzIGNlcnRhaW4gbG9hbiByYW5nZXMuIFdoaWxlIGxvYW4gYW1vdW50IGFsb25lIGRvZXMgbm90IGFwcGVhciB0byBzdHJvbmdseSBkaXN0aW5ndWlzaCBkZWZhdWx0IGJvcnJvd2VycyBmcm9tIG5vbi1kZWZhdWx0IGJvcnJvd2VycywgaXQgbWF5IHN0aWxsIGNvbnRyaWJ1dGUgdG8gZGVmYXVsdCByaXNrIHdoZW4gY29uc2lkZXJlZCBhbG9uZ3NpZGUgb3RoZXIgZmluYW5jaWFsIGNoYXJhY3RlcmlzdGljcy4NCg0KVGhlIHZpc3VhbGl6YXRpb24gc3VnZ2VzdHMgdGhhdCBib3Jyb3dlciBjcmVkaXR3b3J0aGluZXNzIG1heSBiZSBhIHN0cm9uZ2VyIHByZWRpY3RvciBvZiBkZWZhdWx0IHRoYW4gbG9hbiBzaXplIGJ5IGl0c2VsZi4NCg0KIyMgSW50ZXJhY3RpdmUgRGF0YSB0YWJsZQ0KDQpUaGUgZGF0YSB0YWJsZSBhbGxvd3MgdXNlcnMgdG8gaW5zcGVjdCBpbmRpdmlkdWFsIGJvcnJvd2VyIHJlY29yZHMgYWZ0ZXIgYXBwbHlpbmcgZmlsdGVycy4gVW5saWtlIHRoZSBzdW1tYXJ5IHN0YXRpc3RpY3MgYW5kIHZpc3VhbGl6YXRpb25zLCB3aGljaCBwcm92aWRlIGFnZ3JlZ2F0ZWQgaW5mb3JtYXRpb24sIHRoZSBkYXRhIHRhYmxlIHByZXNlbnRzIHRoZSB1bmRlcmx5aW5nIG9ic2VydmF0aW9ucyB1c2VkIGluIHRoZSBhbmFseXNpcy4NCg0KVXNlcnMgY2FuIHNlYXJjaCwgc29ydCwgYW5kIGZpbHRlciB0aGUgcmVjb3JkcyB0byBpbnZlc3RpZ2F0ZSBzcGVjaWZpYyBib3Jyb3dlciBwcm9maWxlcyBhbmQgYmV0dGVyIHVuZGVyc3RhbmQgdGhlIGZhY3RvcnMgYXNzb2NpYXRlZCB3aXRoIGxvYW4gZGVmYXVsdC4gVGhpcyBmZWF0dXJlIGVuaGFuY2VzIHRyYW5zcGFyZW5jeSBhbmQgc3VwcG9ydHMgZGV0YWlsZWQgZXhwbG9yYXRpb24gb2YgdGhlIGRhdGFzZXQuDQoNCiMjIE92ZXJhbGwgRmluZGluZ3MNCg0KVGhlIGRhc2hib2FyZCByZXZlYWxzIHNldmVyYWwga2V5IGluc2lnaHRzIHJlZ2FyZGluZyBib3Jyb3dlciByaXNrOg0KDQoqIE1vc3QgYm9ycm93ZXJzIGluIHRoZSBkYXRhc2V0IHN1Y2Nlc3NmdWxseSByZXBheSB0aGVpciBsb2Fucy4NCiogQm9ycm93ZXJzIHdobyBkZWZhdWx0IHRlbmQgdG8gaGF2ZSBsb3dlciBjcmVkaXQgc2NvcmVzLg0KKiBDcmVkaXQgc2NvcmUgYXBwZWFycyB0byBiZSBvbmUgb2YgdGhlIHN0cm9uZ2VzdCBpbmRpY2F0b3JzIG9mIGRlZmF1bHQgcmlzay4NCiogTG9hbiBhbW91bnQgYWxvbmUgc2hvd3MgbGltaXRlZCBhYmlsaXR5IHRvIGRpc3Rpbmd1aXNoIGJldHdlZW4gZGVmYXVsdCBhbmQgbm9uLWRlZmF1bHQgYm9ycm93ZXJzLg0KKiBJbnRlcmFjdGl2ZSBmaWx0ZXJpbmcgYWxsb3dzIHVzZXJzIHRvIGV4cGxvcmUgaG93IGJvcnJvd2VyIGNoYXJhY3RlcmlzdGljcyBpbmZsdWVuY2UgZGVmYXVsdCBwYXR0ZXJucyBhY3Jvc3MgZGlmZmVyZW50IHNlZ21lbnRzIG9mIHRoZSBwb3B1bGF0aW9uLg0KDQpUaGUgZGFzaGJvYXJkIGRlbW9uc3RyYXRlcyB0aGF0IGJvcnJvd2VyIGNyZWRpdHdvcnRoaW5lc3MgcGxheXMgYW4gaW1wb3J0YW50IHJvbGUgaW4gbG9hbiByZXBheW1lbnQgb3V0Y29tZXMgYW5kIHByb3ZpZGVzIGEgdXNlZnVsIHRvb2wgZm9yIGV4cGxvcmluZyBwYXR0ZXJucyBvZiBmaW5hbmNpYWwgcmlzay4NCg0KIyBDb25jbHVzaW9uDQoNClRoaXMgcHJvamVjdCBkZXZlbG9wZWQgYW4gaW50ZXJhY3RpdmUgU2hpbnkgZGFzaGJvYXJkIHRvIGV4cGxvcmUgdGhlIGZhY3RvcnMgYXNzb2NpYXRlZCB3aXRoIGxvYW4gZGVmYXVsdCByaXNrLiBCeSBjb21iaW5pbmcgc3VtbWFyeSBzdGF0aXN0aWNzLCBpbnRlcmFjdGl2ZSBmaWx0ZXJzLCB2aXN1YWxpemF0aW9ucywgYW5kIGEgc2VhcmNoYWJsZSBkYXRhIHRhYmxlLCB0aGUgZGFzaGJvYXJkIHByb3ZpZGVzIHVzZXJzIHdpdGggYW4gZWZmZWN0aXZlIHRvb2wgZm9yIGludmVzdGlnYXRpbmcgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFuZCByZXBheW1lbnQgb3V0Y29tZXMuDQoNClRoZSBhbmFseXNpcyByZXZlYWxlZCB0aGF0IGNyZWRpdCBzY29yZSBpcyBvbmUgb2YgdGhlIG1vc3QgaW1wb3J0YW50IGZhY3RvcnMgYXNzb2NpYXRlZCB3aXRoIGxvYW4gZGVmYXVsdC4gQm9ycm93ZXJzIHdobyBkZWZhdWx0ZWQgZ2VuZXJhbGx5IGV4aGliaXRlZCBsb3dlciBjcmVkaXQgc2NvcmVzIHRoYW4gdGhvc2Ugd2hvIHN1Y2Nlc3NmdWxseSByZXBhaWQgdGhlaXIgbG9hbnMuIEluIGNvbnRyYXN0LCBsb2FuIGFtb3VudCBzaG93ZWQgY29uc2lkZXJhYmxlIG92ZXJsYXAgYmV0d2VlbiBkZWZhdWx0IGFuZCBub24tZGVmYXVsdCBib3Jyb3dlcnMsIHN1Z2dlc3RpbmcgdGhhdCBsb2FuIHNpemUgYWxvbmUgbWF5IG5vdCBiZSBhIHN0cm9uZyBpbmRpY2F0b3Igb2YgZGVmYXVsdCByaXNrLiBUaGVzZSBmaW5kaW5ncyBoaWdobGlnaHQgdGhlIGltcG9ydGFuY2Ugb2YgZXZhbHVhdGluZyBib3Jyb3dlciBjcmVkaXR3b3J0aGluZXNzIHdoZW4gYXNzZXNzaW5nIGxlbmRpbmcgZGVjaXNpb25zLg0KDQpUaGUgaW50ZXJhY3RpdmUgZGVzaWduIG9mIHRoZSBkYXNoYm9hcmQgYWxsb3dzIHVzZXJzIHRvIGV4cGxvcmUgaG93IGJvcnJvd2VyIHJpc2sgY2hhbmdlcyBhY3Jvc3MgZGlmZmVyZW50IGNyZWRpdCBzY29yZSByYW5nZXMsIGxvYW4gYW1vdW50cywgYW5kIGRlbW9ncmFwaGljIGdyb3Vwcy4gVGhpcyBmbGV4aWJpbGl0eSBwcm92aWRlcyBkZWVwZXIgaW5zaWdodCB0aGFuIHN0YXRpYyByZXBvcnRzIGFuZCBzdXBwb3J0cyBkYXRhLWRyaXZlbiBkZWNpc2lvbi1tYWtpbmcuDQoNClRoZSBkYXNoYm9hcmQgc3VjY2Vzc2Z1bGx5IGFuc3dlcnMgdGhlIHF1ZXN0aW9uLCAiV2hvIElzIE1vc3QgTGlrZWx5IHRvIERlZmF1bHQ/IiBieSBkZW1vbnN0cmF0aW5nIHRoYXQgYm9ycm93ZXJzIHdpdGggd2Vha2VyIGNyZWRpdCBwcm9maWxlcyBhcmUgZ2VuZXJhbGx5IGF0IGdyZWF0ZXIgcmlzayBvZiBkZWZhdWx0LiBUaGUgcHJvamVjdCBpbGx1c3RyYXRlcyBob3cgaW50ZXJhY3RpdmUgZGF0YSB2aXN1YWxpemF0aW9uIGNhbiB0cmFuc2Zvcm0gbG9hbiBkYXRhIGludG8gbWVhbmluZ2Z1bCBpbnNpZ2h0cyB0aGF0IGhlbHAgZmluYW5jaWFsIGluc3RpdHV0aW9ucyBiZXR0ZXIgdW5kZXJzdGFuZCBhbmQgbWFuYWdlIGJvcnJvd2VyIHJpc2su</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIldobyBJcyBNb3N0IExpa2VseSB0byBEZWZhdWx0PyBBbiBJbnRlcmFjdGl2ZSBFeHBsb3JhdGlvbiBvZiBCb3Jyb3dlciBSaXNrIg0KYXV0aG9yOiAiQ2hpbmcgWWkgTGFtIg0KZGF0ZTogImByIFN5cy5EYXRlKClgIg0Kb3V0cHV0OiANCiAgaHRtbF9kb2N1bWVudDogDQogICAgdGhlbWU6IHlldGkNCiAgICB0b2M6IHllcw0KICAgIHRvY19kZXB0aDogNA0KICAgIHRvY19mbG9hdDogeWVzDQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMNCiAgICB0b2NfY29sbGFwc2VkOiB5ZXMNCiAgICBjb2RlX2ZvbGRpbmc6IGhpZGUNCiAgICBjb2RlX2Rvd25sb2FkOiB5ZXMNCiAgICBzbW9vdGhfc2Nyb2xsOiB5ZXMNCiAgICBoaWdobGlnaHQ6IHRhbmdvDQotLS0NCg0KYGBge2NzcyBlY2hvID0gRkFMU0V9DQovKiA9PT09PT09PT09PT0gQ1NTIFN0eWxpbmcgZm9yIExlY3R1cmUgTm90ZXMgPT09PT09PT09PT09ICovDQoNCmJvZHkgew0KICBmb250LWZhbWlseTogJ1NlZ29lIFVJJywgJ0ludGVyJywgc3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmOw0KICBsaW5lLWhlaWdodDogMS43Ow0KICBjb2xvcjogIzJkMWIyOTsNCiAgYmFja2dyb3VuZC1jb2xvcjogI2ZkZmFmZDsNCn0NCg0KI1RPQzo6YmVmb3JlIHsNCiAgY29udGVudDogIlRhYmxlIG9mIENvbnRlbnRzIjsNCiAgZm9udC13ZWlnaHQ6IGJvbGQ7DQogIGZvbnQtc2l6ZTogMS4yZW07DQogIGRpc3BsYXk6IGJsb2NrOw0KICBjb2xvcjogbmF2eTsNCiAgbWFyZ2luLWJvdHRvbTogMTBweDsNCn0NCg0KDQpkaXYjVE9DIGxpIHsgICAgIC8qIHRhYmxlIG9mIGNvbnRlbnQgICovDQogICAgbGlzdC1zdHlsZTp1cHBlci1yb21hbjsNCiAgICBiYWNrZ3JvdW5kLWltYWdlOm5vbmU7DQogICAgYmFja2dyb3VuZC1yZXBlYXQ6bm9uZTsNCiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOjA7DQogICAgLypmb250LXdlaWdodDogYm9sZDsgKi8NCiAgICBmb250LXNpemU6IDEuMWVtOw0KICAgIGZvbnQtd2VpZ2h0OiA1MDA7DQogICAgY29sb3I6ICM2RTMwNjE7DQp9DQoNCg0KaDEudGl0bGUgew0KICBmb250LXNpemU6IDI2cHg7DQogIGNvbG9yOiAjNkUzMDYxOw0KICB0ZXh0LWFsaWduOiBsZWZ0Ow0KfQ0KDQpoNC5hdXRob3IgeyAvKiBIZWFkZXIgNCAtIGFuZCB0aGUgYXV0aG9yIGFuZCBkYXRhIGhlYWRlcnMgdXNlIHRoaXMgdG9vICAqLw0KICBmb250LXNpemU6IDE4cHg7DQogIC8qZm9udC1mYW1pbHk6ICJUaW1lcyBOZXcgUm9tYW4iLCBUaW1lcywgc2VyaWY7Ki8NCiAgY29sb3I6ICM2RTMwNjE7DQogIHRleHQtYWxpZ246IGxlZnQ7DQp9DQpoNC5kYXRlIHsgLyogSGVhZGVyIDQgLSBhbmQgdGhlIGF1dGhvciBhbmQgZGF0YSBoZWFkZXJzIHVzZSB0aGlzIHRvbyAgKi8NCiAgZm9udC1zaXplOiAxOHB4Ow0KICAvKmZvbnQtZmFtaWx5OiAiVGltZXMgTmV3IFJvbWFuIiwgVGltZXMsIHNlcmlmOyovDQogIGNvbG9yOiAjNkUzMDYxOw0KICB0ZXh0LWFsaWduOiBsZWZ0Ow0KfQ0KDQoNCmgxIHsNCiAgY29sb3I6ICM2RTMwNjE7DQogIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAjNkUzMDYxOw0KICBwYWRkaW5nLWJvdHRvbTogOHB4Ow0KICBtYXJnaW4tdG9wOiA0MHB4Ow0KICBmb250LXdlaWdodDogYm9sZDsNCiAgZm9udC1zaXplOiAyLjJyZW07DQp9DQoNCmgyIHsNCiAgY29sb3I6ICM2RTMwNjE7DQogIGJvcmRlci1sZWZ0OiA1cHggc29saWQgIzZFMzA2MTsNCiAgcGFkZGluZy1sZWZ0OiAxMnB4Ow0KICBtYXJnaW4tdG9wOiAzMHB4Ow0KICBmb250LXdlaWdodDogYm9sZDsNCiAgZm9udC1zaXplOiAxLjhyZW07DQp9DQoNCmgzIHsNCiAgY29sb3I6ICM4YjRhN2Q7DQogIG1hcmdpbi10b3A6IDI0cHg7DQogIGZvbnQtd2VpZ2h0OiBib2xkOw0KICBmb250LXNpemU6IDEuOG07DQp9DQoNCmg0IHsNCiAgY29sb3I6ICNhMDVmOTI7DQogIG1hcmdpbi10b3A6IDE4cHg7DQogIGZvbnQtd2VpZ2h0OiBib2xkOw0KICBmb250LXNpemU6IDEuNHJlbTsNCn0NCg0KY29kZSB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmNGVkZjM7DQogIGNvbG9yOiAjNGEyMDQwOw0KICBwYWRkaW5nOiAycHggNnB4Ow0KICBib3JkZXItcmFkaXVzOiA0cHg7DQogIGZvbnQtZmFtaWx5OiAnRmlyYSBDb2RlJywgJ0pldEJyYWlucyBNb25vJywgJ0NvbnNvbGFzJywgbW9ub3NwYWNlOw0KICBmb250LXNpemU6IDAuOWVtOw0KICBib3JkZXI6IDFweCBzb2xpZCAjZDRjMGQxOw0KfQ0KDQpwcmUgew0KICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmNWY5Ow0KICBib3JkZXI6IDFweCBzb2xpZCAjZDRjMGQxOw0KICBib3JkZXItbGVmdDogNHB4IHNvbGlkICM2RTMwNjE7DQogIGJvcmRlci1yYWRpdXM6IDZweDsNCiAgcGFkZGluZzogMTRweDsNCn0NCg0KcHJlIGNvZGUgew0KICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsNCiAgYm9yZGVyOiBub25lOw0KICBwYWRkaW5nOiAwOw0KfQ0KDQpibG9ja3F1b3RlIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogI2Y0ZWRmMzsNCiAgYm9yZGVyLWxlZnQ6IDRweCBzb2xpZCAjNkUzMDYxOw0KICBwYWRkaW5nOiAxMnB4IDE4cHg7DQogIG1hcmdpbjogMTZweCAwOw0KICBib3JkZXItcmFkaXVzOiAwIDZweCA2cHggMDsNCiAgY29sb3I6ICM0YTIwNDA7DQp9DQoNCi5ub3RlLWJveCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmMGU2ZWU7DQogIGJvcmRlcjogMXB4IHNvbGlkICNjNDliYjg7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW46IDE4cHggMDsNCn0NCg0KLm5vdGUtYm94IHN0cm9uZyB7DQogIGNvbG9yOiAjNkUzMDYxOw0KfQ0KDQoudGlwLWJveCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNlOGY1ZTk7DQogIGJvcmRlcjogMXB4IHNvbGlkICM4MWM3ODQ7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW46IDE4cHggMDsNCn0NCg0KLnRpcC1ib3ggc3Ryb25nIHsNCiAgY29sb3I6ICMyZTdkMzI7DQp9DQoNCi53YXJuaW5nLWJveCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmZmYzZTA7DQogIGJvcmRlcjogMXB4IHNvbGlkICNmZmI3NGQ7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW46IDE4cHggMDsNCn0NCg0KLndhcm5pbmctYm94IHN0cm9uZyB7DQogIGNvbG9yOiAjZTY1MTAwOw0KfQ0KDQp0YWJsZSB7DQogIHdpZHRoOiAxMDAlOw0KICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOw0KICBtYXJnaW46IDE2cHggMDsNCn0NCg0KdGFibGUgdGggew0KICBiYWNrZ3JvdW5kLWNvbG9yOiAjNkUzMDYxOw0KICBjb2xvcjogd2hpdGU7DQogIHBhZGRpbmc6IDEwcHggMTJweDsNCiAgdGV4dC1hbGlnbjogbGVmdDsNCiAgZm9udC13ZWlnaHQ6IDYwMDsNCn0NCg0KdGFibGUgdGQgew0KICBwYWRkaW5nOiA4cHggMTJweDsNCiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkNGMwZDE7DQp9DQoNCnRhYmxlIHRyOm50aC1jaGlsZChldmVuKSB0ZCB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmYWY1Zjk7DQp9DQoNCnRhYmxlIHRyOmhvdmVyIHRkIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogI2YwZTZlZTsNCn0NCg0KLnRvYyB7DQogIGJhY2tncm91bmQtY29sb3I6ICNmYWY1Zjk7DQogIGJvcmRlcjogMXB4IHNvbGlkICNkNGMwZDE7DQogIGJvcmRlci1yYWRpdXM6IDhweDsNCiAgcGFkZGluZzogMTZweCAyMHB4Ow0KICBtYXJnaW4tYm90dG9tOiAyNHB4Ow0KfQ0KDQouZmlndXJlIHsNCiAgYm9yZGVyOiAxcHggc29saWQgI2UwZDFkYjsNCiAgYm9yZGVyLXJhZGl1czogOHB4Ow0KICBwYWRkaW5nOiA4cHg7DQogIG1hcmdpbjogMTZweCAwOw0KICBib3gtc2hhZG93OiAwIDJweCA4cHggcmdiYSgxMTAsIDQ4LCA5NywgMC4wOCk7DQp9DQpgYGANCg0KDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFLCAgICAgICANCiAgICAgICAgICAgICAgICAgICAgICB3YXJuaW5nID0gRkFMU0UsICAgDQogICAgICAgICAgICAgICAgICAgICAgcmVzdWx0ID0gVFJVRSwgICANCiAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlID0gRkFMU0UsDQogICAgICAgICAgICAgICAgICAgICAgY29tbWVudCA9IE5BKQ0KYGBgDQoNCiMgSW50cm9kdWN0aW9uDQoNCkxvYW4gZGVmYXVsdCBpcyBvbmUgb2YgdGhlIG1vc3Qgc2lnbmlmaWNhbnQgZmluYW5jaWFsIHJpc2tzIGZhY2VkIGJ5IGJhbmtzIGFuZCBsZW5kaW5nIGluc3RpdHV0aW9ucy4gRXZlcnkgYXBwcm92ZWQgbG9hbiBjYXJyaWVzIHVuY2VydGFpbnR5IHJlZ2FyZGluZyB3aGV0aGVyIHRoZSBib3Jyb3dlciB3aWxsIHJlcGF5IHRoZSBsb2FuIGFjY29yZGluZyB0byB0aGUgYWdyZWVkIHRlcm1zLiBIaWdoIGRlZmF1bHQgcmF0ZXMgcmVkdWNlIHByb2ZpdGFiaWxpdHksIGluY3JlYXNlIGZpbmFuY2lhbCBsb3NzZXMsIGFuZCByZXF1aXJlIGxlbmRlcnMgdG8gc3RyZW5ndGhlbiB0aGVpciByaXNrIG1hbmFnZW1lbnQgc3RyYXRlZ2llcy4gQ29uc2VxdWVudGx5LCBpZGVudGlmeWluZyB0aGUgY2hhcmFjdGVyaXN0aWNzIGFzc29jaWF0ZWQgd2l0aCBsb2FuIGRlZmF1bHQgaGFzIGJlY29tZSBhbiBlc3NlbnRpYWwgY29tcG9uZW50IG9mIG1vZGVybiBjcmVkaXQgcmlzayBhc3Nlc3NtZW50Lg0KDQpUcmFkaXRpb25hbCBzdGF0aXN0aWNhbCByZXBvcnRzIG9mdGVuIHN1bW1hcml6ZSBib3Jyb3dlciBpbmZvcm1hdGlvbiB1c2luZyBzdGF0aWMgdGFibGVzIGFuZCBjaGFydHMuIEFsdGhvdWdoIHVzZWZ1bCwgc3RhdGljIHJlcG9ydHMgcHJvdmlkZSBsaW1pdGVkIGZsZXhpYmlsaXR5IGZvciBleHBsb3JpbmcgZGlmZmVyZW50IGJvcnJvd2VyIGdyb3Vwcy4gSW50ZXJhY3RpdmUgZGFzaGJvYXJkcyBvdmVyY29tZSB0aGlzIGxpbWl0YXRpb24gYnkgYWxsb3dpbmcgdXNlcnMgdG8gZHluYW1pY2FsbHkgZmlsdGVyIGRhdGEgYW5kIGltbWVkaWF0ZWx5IG9ic2VydmUgaG93IGJvcnJvd2VyIGNoYXJhY3RlcmlzdGljcyBjaGFuZ2UgYWNyb3NzIGRpZmZlcmVudCBzdWJzZXRzIG9mIHRoZSBwb3B1bGF0aW9uLiBTdWNoIGRhc2hib2FyZHMgc3VwcG9ydCBleHBsb3JhdG9yeSBkYXRhIGFuYWx5c2lzLCBpbXByb3ZlIGRlY2lzaW9uLW1ha2luZywgYW5kIGhlbHAgY29tbXVuaWNhdGUgY29tcGxleCBpbmZvcm1hdGlvbiBtb3JlIGVmZmVjdGl2ZWx5Lg0KDQpUaGlzIHByb2plY3QgZGV2ZWxvcHMgYW4gaW50ZXJhY3RpdmUgU2hpbnkgZGFzaGJvYXJkIHRvIGV4cGxvcmUgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFzc29jaWF0ZWQgd2l0aCBsb2FuIGRlZmF1bHQuIFRoZSBkYXNoYm9hcmQgZW5hYmxlcyB1c2VycyB0byBpbnZlc3RpZ2F0ZSByZWxhdGlvbnNoaXBzIGJldHdlZW4gYm9ycm93ZXIgZGVtb2dyYXBoaWNzLCBmaW5hbmNpYWwgY2hhcmFjdGVyaXN0aWNzLCBhbmQgbG9hbiByZXBheW1lbnQgb3V0Y29tZXMgdXNpbmcgaW50ZXJhY3RpdmUgdmlzdWFsaXphdGlvbnMuIFVzZXJzIG1heSBmaWx0ZXIgYm9ycm93ZXJzIGFjY29yZGluZyB0byBjcmVkaXQgc2NvcmUsIGxvYW4gYW1vdW50LCBnZW5kZXIsIGFuZCBlbXBsb3ltZW50IHN0YXR1cyB3aGlsZSB2aWV3aW5nIHN1bW1hcnkgc3RhdGlzdGljcywgZ3JhcGhpY2FsIGNvbXBhcmlzb25zLCBhbmQgaW5kaXZpZHVhbCBib3Jyb3dlciByZWNvcmRzLg0KDQpUaGUgZGFzaGJvYXJkIHdhcyBkZXZlbG9wZWQgdXNpbmcgUiBTaGlueSwgc2hpbnlkYXNoYm9hcmQsIFBsb3RseSwgYW5kIERULiBJbnRlcmFjdGl2ZSB2YWx1ZSBib3hlcyBwcm92aWRlIGFuIGltbWVkaWF0ZSBzdW1tYXJ5IG9mIHRoZSBzZWxlY3RlZCBib3Jyb3dlciBwb3B1bGF0aW9uLCB3aGlsZSBtdWx0aXBsZSBpbnRlcmFjdGl2ZSB2aXN1YWxpemF0aW9ucyBpbGx1c3RyYXRlIGltcG9ydGFudCBwYXR0ZXJucyB3aXRoaW4gdGhlIGRhdGEuIFRoZSBvdmVyYWxsIG9iamVjdGl2ZSBpcyB0byB0cmFuc2Zvcm0gcmF3IGJvcnJvd2VyIGluZm9ybWF0aW9uIGludG8gbWVhbmluZ2Z1bCBpbnNpZ2h0cyB0aGF0IGFzc2lzdCBmaW5hbmNpYWwgaW5zdGl0dXRpb25zIGluIHVuZGVyc3RhbmRpbmcgYm9ycm93ZXIgcmlzayBhbmQgbWFraW5nIG1vcmUgaW5mb3JtZWQgbGVuZGluZyBkZWNpc2lvbnMuDQoNCiMgRGF0YSBTb3VyY2UgYW5kIERlc2NyaXB0aW9uDQoNClRoZSBhbmFseXNpcyB1c2VzIHRoZSAqKkJhbmsgTG9hbiBEZWZhdWx0IERhdGFzZXQqKiwgd2hpY2ggY29udGFpbnMgYm9ycm93ZXIgZGVtb2dyYXBoaWMgaW5mb3JtYXRpb24sIGZpbmFuY2lhbCBjaGFyYWN0ZXJpc3RpY3MsIGV4aXN0aW5nIGxvYW4gb2JsaWdhdGlvbnMsIGFuZCBsb2FuIHJlcGF5bWVudCBvdXRjb21lcy4gVGhlIGRhdGFzZXQgY29uc2lzdHMgb2YgKioxLDAwMCBib3Jyb3dlciByZWNvcmRzKiogYW5kIGlzIGRlc2lnbmVkIHRvIHN1cHBvcnQgYW5hbHlzZXMgb2YgZmFjdG9ycyBhc3NvY2lhdGVkIHdpdGggbG9hbiBkZWZhdWx0Lg0KDQpUaGUgcmVzcG9uc2UgdmFyaWFibGUgaXMgKipEZWZhdWx0KiosIGluZGljYXRpbmcgd2hldGhlciBhIGJvcnJvd2VyIHN1Y2Nlc3NmdWxseSByZXBhaWQgdGhlIGxvYW4gb3IgZGVmYXVsdGVkLg0KDQoqKlJlc3BvbnNlIFZhcmlhYmxlKio6DQoNCnwgVmFyaWFibGUgICAgICAgICAgfCBEZXNjcmlwdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCAtLS0tLS0tLS0tLS0tLS0tLSB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB8DQp8IERlZmF1bHQgICAgICAgICAgIHwgSW5kaWNhdGVzIHdoZXRoZXIgdGhlIGJvcnJvd2VyIGRlZmF1bHRlZCBvbiB0aGUgbG9hbiAoRGVmYXVsdCAvIE5vIERlZmF1bHQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQoNCioqRXhwbGFuYXRvcnkgVmFyaWFibGVzKio6DQoNClRoZSBkYXRhc2V0IGNvbnRhaW5zIHNldmVyYWwgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzLCBpbmNsdWRpbmc6DQoNCnwgVmFyaWFibGUgICAgICAgICAgfCBEZXNjcmlwdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCAtLS0tLS0tLS0tLS0tLS0tLSB8IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB8DQp8IEFnZSAgICAgICAgICAgICAgIHwgQm9ycm93ZXIncyBhZ2UgaW4geWVhcnMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgR2VuZGVyICAgICAgICAgICAgfCBCb3Jyb3dlcidzIGdlbmRlciAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCBNYXJpdGFsX3N0YXR1cyAgICB8IE1hcml0YWwgc3RhdHVzIG9mIHRoZSBib3Jyb3dlciAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQp8IEVtcGxveW1lbnRfc3RhdHVzIHwgRW1wbG95bWVudCBzdGF0dXMgb2YgdGhlIGJvcnJvd2VyICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgQ3JlZGl0X3Njb3JlICAgICAgfCBDcmVkaXQgc2NvcmUgdXNlZCB0byBhc3Nlc3MgY3JlZGl0d29ydGhpbmVzcyAgICAgICAgICAgICAgICAgfA0KfCBBbW91bnQgICAgICAgICAgICB8IExvYW4gYW1vdW50IHJlcXVlc3RlZCBvciBhcHByb3ZlZCAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQp8IFRlcm0gICAgICAgICAgICAgIHwgTG9hbiByZXBheW1lbnQgdGVybSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgQ2hlY2tpbmdfYW1vdW50ICAgfCBCYWxhbmNlIGluIHRoZSBib3Jyb3dlcidzIGNoZWNraW5nIGFjY291bnQgICAgICAgICAgICAgICAgICAgfA0KfCBTYXZpbmdfYW1vdW50ICAgICB8IEJhbGFuY2UgaW4gdGhlIGJvcnJvd2VyJ3Mgc2F2aW5ncyBhY2NvdW50ICAgICAgICAgICAgICAgICAgICB8DQp8IENhcl9sb2FuICAgICAgICAgIHwgSW5kaWNhdGVzIHdoZXRoZXIgdGhlIGJvcnJvd2VyIGN1cnJlbnRseSBoYXMgYSBjYXIgbG9hbiAgICAgIHwNCnwgUGVyc29uYWxfbG9hbiAgICAgfCBJbmRpY2F0ZXMgd2hldGhlciB0aGUgYm9ycm93ZXIgY3VycmVudGx5IGhhcyBhIHBlcnNvbmFsIGxvYW4gfA0KfCBIb21lX2xvYW4gICAgICAgICB8IEluZGljYXRlcyB3aGV0aGVyIHRoZSBib3Jyb3dlciBjdXJyZW50bHkgaGFzIGEgaG9tZSBsb2FuICAgICB8DQp8IEVkdWNhdGlvbl9sb2FuICAgIHwgSW5kaWNhdGVzIHdoZXRoZXIgdGhlIGJvcnJvd2VyIGN1cnJlbnRseSBoYXMgYW4gZWR1Y2F0aW9uIGxvYW4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCg0KDQpUaGVzZSB2YXJpYWJsZXMgcHJvdmlkZSBpbmZvcm1hdGlvbiBhYm91dCBib3Jyb3dlciBkZW1vZ3JhcGhpY3MsIGZpbmFuY2lhbCByZXNvdXJjZXMsIGV4aXN0aW5nIGRlYnQgb2JsaWdhdGlvbnMsIGFuZCBsb2FuIGNoYXJhY3RlcmlzdGljcy4gVG9nZXRoZXIsIHRoZXkgaGVscCBleHBsYWluIHBvdGVudGlhbCBkaWZmZXJlbmNlcyBiZXR3ZWVuIGJvcnJvd2VycyB3aG8gZGVmYXVsdCBhbmQgdGhvc2Ugd2hvIHN1Y2Nlc3NmdWxseSByZXBheSB0aGVpciBsb2Fucy4NCg0KIyBEYXNoYm9hcmQgT3Zldmlldw0KDQpUaGUgZGFzaGJvYXJkIHdhcyBkZXNpZ25lZCB0byBwcm92aWRlIGEgY2xlYW4sIGludHVpdGl2ZSwgYW5kIGludGVyYWN0aXZlIGludGVyZmFjZSBmb3IgZXhwbG9yaW5nIGJvcnJvd2VyIHJpc2suIFVzZXJzIGNhbiBpbnZlc3RpZ2F0ZSBkaWZmZXJlbnQgYm9ycm93ZXIgZ3JvdXBzIGJ5IGFwcGx5aW5nIG11bHRpcGxlIGZpbHRlcnMgYW5kIGltbWVkaWF0ZWx5IG9ic2VydmUgaG93IHN1bW1hcnkgc3RhdGlzdGljcyBhbmQgdmlzdWFsaXphdGlvbnMgY2hhbmdlLg0KDQpUaGUgZGFzaGJvYXJkIGluY2x1ZGVzIGZvdXIgaW50ZXJhY3RpdmUgZmlsdGVyczoNCg0KKiBDcmVkaXQgU2NvcmUgUmFuZ2UNCiogTG9hbiBBbW91bnQgUmFuZ2UNCiogR2VuZGVyDQoqIEVtcGxveW1lbnQgU3RhdHVzDQoNClRoZSBkYXNoYm9hcmQgY29udGFpbnMgdGhlIGZvbGxvd2luZyBjb21wb25lbnRzOg0KDQoqIEludGVyYWN0aXZlIFZhbHVlIEJveGVzDQoqIE51bWJlciBvZiBCb3Jyb3dlcnMgYnkgRGVmYXVsdCBTdGF0dXMNCiogQ3JlZGl0IFNjb3JlIGJ5IERlZmF1bHQgU3RhdHVzDQoqIExvYW4gQW1vdW50IERpc3RyaWJ1dGlvbiBieSBEZWZhdWx0IFN0YXR1cw0KKiBEZWZhdWx0IFJhdGUgYnkgRW1wbG95bWVudCBTdGF0dXMNCiogSW50ZXJhY3RpdmUgRGF0YSBUYWJsZQ0KDQpFYWNoIGNvbXBvbmVudCBjb250cmlidXRlcyB0byBhIGNvbXByZWhlbnNpdmUgdW5kZXJzdGFuZGluZyBvZiBib3Jyb3dlciBjaGFyYWN0ZXJpc3RpY3Mgd2hpbGUgYWxsb3dpbmcgdXNlcnMgdG8gZXhwbG9yZSByZWxhdGlvbnNoaXBzIGJldHdlZW4gZmluYW5jaWFsIHZhcmlhYmxlcyBhbmQgbG9hbiBkZWZhdWx0Lg0KDQojIEludGVyYWN0aXZlIERhc2hib2FyZA0KDQpUaGUgaW50ZXJhY3RpdmUgU2hpbnkgZGFzaGJvYXJkIGlzIGVtYmVkZGVkIGJlbG93LiBVc2VycyBjYW4gYWRqdXN0IHRoZSBjcmVkaXQgc2NvcmUsIGxvYW4gYW1vdW50LCBhbmQgZ2VuZGVyIGZpbHRlcnMgdG8gZXhwbG9yZSBob3cgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFyZSBhc3NvY2lhdGVkIHdpdGggbG9hbiBkZWZhdWx0IGJlaGF2aW9yLg0KDQpUaGUgaW50ZXJhY3RpdmUgZGFzaGJvYXJkIGlzIGF2YWlsYWJsZSBhdDoNCmh0dHBzOi8vY2hpbmd5aWxhbS5zaGlueWFwcHMuaW8vU2hpbnlBcHBQcm9qZWN0Lw0KDQpVc2VycyBjYW4gaW50ZXJhY3Qgd2l0aCB0aGUgZGFzaGJvYXJkIHRocm91Z2ggdGhyZWUgZmlsdGVyczoNCg0KKiBDcmVkaXQgU2NvcmUgUmFuZ2UNCiogTG9hbiBBbW91bnQgUmFuZ2UNCiogR2VuZGVyDQoNClRoZSBkYXNoYm9hcmQgY29udGFpbnMgZm91ciBwcmltYXJ5IGNvbXBvbmVudHM6DQoNCiogU3VtbWFyeSBTdGF0aXN0aWNzDQoqIE51bWJlciBvZiBCb3Jyb3dlcnMgYnkgRGVmYXVsdCBTdGF0dXMNCiogQ3JlZGl0IFNjb3JlIGJ5IERlZmF1bHQgU3RhdHVzDQoqIExvYW4gQW1vdW50IERpc3RyaWJ1dGlvbiBieSBEZWZhdWx0IFN0YXR1cw0KKiBJbnRlcmFjdGl2ZSBEYXRhIFRhYmxlDQoNClRoZXNlIGNvbXBvbmVudHMgd29yayB0b2dldGhlciB0byBoZWxwIHVzZXJzIGlkZW50aWZ5IHBhdHRlcm5zIGFzc29jaWF0ZWQgd2l0aCBib3Jyb3dlciBkZWZhdWx0IGJlaGF2aW9yIGFuZCBzdXBwb3J0IGRhdGEtZHJpdmVuIGRlY2lzaW9uLW1ha2luZy4NCg0KVGhlIGRhc2hib2FyZCBhbHNvIHByb3ZpZGVzIGRpcmVjdCBsaW5rcyB0byB0aGUgcHJvamVjdCByZXBvcnQsIHNvdXJjZSBjb2RlLCBhbmQgb3JpZ2luYWwgZGF0YSBzb3VyY2UgdGhyb3VnaCB0aGUgZGFzaGJvYXJkIGhlYWRlciwgbWFraW5nIGl0IGVhc3kgZm9yIHVzZXJzIHRvIGFjY2VzcyBhbGwgcHJvamVjdCByZXNvdXJjZXMuDQoNCmBgYHtyLCBlY2hvPUZBTFNFfQ0Ka25pdHI6OmluY2x1ZGVfdXJsKCJodHRwczovL2NoaW5neWlsYW0uc2hpbnlhcHBzLmlvL1NoaW55QXBwUHJvamVjdC8iLCANCiAgICBoZWlnaHQgPSAiMTYwMHB4IikNCmBgYA0KDQojIyBEYXNoYm9hcmQgRmlsdGVycw0KDQpVc2VycyBtYXkgaW50ZXJhY3RpdmVseSBmaWx0ZXIgdGhlIGJvcnJvd2VyIHBvcHVsYXRpb24gdXNpbmcgZm91ciBjb250cm9scyBsb2NhdGVkIGluIHRoZSBsZWZ0IHNpZGViYXIuDQoNCioqQ3JlZGl0IFNjb3JlKio6IFVzZXJzIGNhbiByZXN0cmljdCB0aGUgYW5hbHlzaXMgdG8gYm9ycm93ZXJzIHdpdGhpbiBhIHNlbGVjdGVkIGNyZWRpdCBzY29yZSByYW5nZS4gVGhpcyBhbGxvd3MgY29tcGFyaXNvbiBvZiByZXBheW1lbnQgYmVoYXZpb3IgYW1vbmcgYm9ycm93ZXJzIHdpdGggd2Vha2VyIG9yIHN0cm9uZ2VyIGNyZWRpdCBoaXN0b3JpZXMuDQoNCioqTG9hbiBBbW91bnQqKjogVXNlcnMgY2FuIGV4YW1pbmUgYm9ycm93ZXJzIHJlcXVlc3RpbmcgZGlmZmVyZW50IGxvYW4gc2l6ZXMuIFRoZSBkYXNoYm9hcmQgaW1tZWRpYXRlbHkgdXBkYXRlcyBldmVyeSB2aXN1YWxpemF0aW9uIGJhc2VkIG9uIHRoZSBzZWxlY3RlZCBsb2FuIGFtb3VudCByYW5nZS4NCg0KKipHZW5kZXIqKjogVXNlcnMgbWF5IGNvbXBhcmUgYm9ycm93ZXIgYmVoYXZpb3IgYWNyb3NzIGdlbmRlciBncm91cHMgb3IgdmlldyB0aGUgY29tcGxldGUgZGF0YXNldC4NCg0KKipFbXBsb3ltZW50IFN0YXR1cyoqOiBFbXBsb3ltZW50IHN0YXR1cyBwcm92aWRlcyBhZGRpdGlvbmFsIGNvbnRleHQgcmVnYXJkaW5nIGZpbmFuY2lhbCBzdGFiaWxpdHkuIFVzZXJzIGNhbiBjb21wYXJlIGJvcnJvd2VyIHJpc2sgYWNyb3NzIGVtcGxveW1lbnQgY2F0ZWdvcmllcyB3aGlsZSBzaW11bHRhbmVvdXNseSBhcHBseWluZyB0aGUgcmVtYWluaW5nIGZpbHRlcnMuDQoNCkJlY2F1c2UgYWxsIGZpbHRlcnMgb3BlcmF0ZSB0b2dldGhlciwgdGhlIGRhc2hib2FyZCBzdXBwb3J0cyBoaWdobHkgZmxleGlibGUgZXhwbG9yYXRpb24gb2YgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzLg0KDQojIE5hcnJhdGl2ZSBvZiB0aGUgU3RvcnkNCg0KVGhlIHByaW1hcnkgcXVlc3Rpb24gZXhwbG9yZWQgaW4gdGhpcyBwcm9qZWN0IGlzOg0KDQoqV2hvIGlzIG1vc3QgbGlrZWx5IHRvIGRlZmF1bHQgb24gYSBsb2FuPyoNCg0KRmluYW5jaWFsIGluc3RpdHV0aW9ucyBldmFsdWF0ZSBtYW55IGJvcnJvd2VyIGNoYXJhY3RlcmlzdGljcyBiZWZvcmUgYXBwcm92aW5nIGEgbG9hbi4gSG93ZXZlciwgdW5kZXJzdGFuZGluZyB3aGljaCBjaGFyYWN0ZXJpc3RpY3MgYXJlIG1vc3Qgc3Ryb25nbHkgYXNzb2NpYXRlZCB3aXRoIGRlZmF1bHQgY2FuIGhlbHAgaW1wcm92ZSBsZW5kaW5nIGRlY2lzaW9ucyBhbmQgcmVkdWNlIGZpbmFuY2lhbCByaXNrLg0KDQpUaGlzIGRhc2hib2FyZCBndWlkZXMgdXNlcnMgdGhyb3VnaCBhIHNlcXVlbmNlIG9mIHZpc3VhbGl6YXRpb25zIHRoYXQgZ3JhZHVhbGx5IGFuc3dlciB0aGlzIHF1ZXN0aW9uLg0KDQpUaGUgZGFzaGJvYXJkIGJlZ2lucyBieSBwcmVzZW50aW5nIHN1bW1hcnkgaW5kaWNhdG9ycyBkZXNjcmliaW5nIHRoZSBjdXJyZW50IGJvcnJvd2VyIHBvcHVsYXRpb24uIFVzZXJzIHRoZW4gY29tcGFyZSB0aGUgbnVtYmVyIG9mIGRlZmF1bHQgYW5kIG5vbi1kZWZhdWx0IGJvcnJvd2VycyBiZWZvcmUgZXhhbWluaW5nIGhvdyBjcmVkaXQgc2NvcmUsIGxvYW4gYW1vdW50LCBhbmQgZW1wbG95bWVudCBzdGF0dXMgZGlmZmVyIGJldHdlZW4gdGhlIHR3byBncm91cHMuIEZpbmFsbHksIHVzZXJzIGNhbiBpbnNwZWN0IHRoZSBpbmRpdmlkdWFsIGJvcnJvd2VyIHJlY29yZHMgdXNpbmcgdGhlIGludGVyYWN0aXZlIGRhdGEgdGFibGUuDQoNCkluc3RlYWQgb2YgcHJlc2VudGluZyBpc29sYXRlZCBjaGFydHMsIHRoZSBkYXNoYm9hcmQgZW5jb3VyYWdlcyB1c2VycyB0byBidWlsZCBhbiBvdmVyYWxsIHVuZGVyc3RhbmRpbmcgb2YgYm9ycm93ZXIgcmlzayB0aHJvdWdoIGludGVyYWN0aXZlIGV4cGxvcmF0aW9uLiBBcyBmaWx0ZXJzIGFyZSBhcHBsaWVkLCBldmVyeSB2aXN1YWxpemF0aW9uIHVwZGF0ZXMgYXV0b21hdGljYWxseSwgYWxsb3dpbmcgdXNlcnMgdG8gaW52ZXN0aWdhdGUgaG93IGRpZmZlcmVudCBib3Jyb3dlciBncm91cHMgY29tcGFyZS4NCg0KIyBJbnRlcnByZXRhdGlvbiBvZiBEYXNoYm9hcmQgVmlzdWFsaXphdGlvbnMNCg0KIyMgSW50ZXJhY3RpdmUgU3VtbWFyeQ0KDQpUaGUgZGFzaGJvYXJkIGJlZ2lucyB3aXRoIGZvdXIgaW50ZXJhY3RpdmUgdmFsdWUgYm94ZXMgdGhhdCBzdW1tYXJpemUgdGhlIGN1cnJlbnRseSBzZWxlY3RlZCBib3Jyb3dlciBwb3B1bGF0aW9uLg0KDQpUaGVzZSBpbmRpY2F0b3JzIGluY2x1ZGU6DQoNCiogVG90YWwgTnVtYmVyIG9mIEJvcnJvd2Vycw0KKiBBdmVyYWdlIENyZWRpdCBTY29yZQ0KKiBBdmVyYWdlIExvYW4gQW1vdW50DQoqIERlZmF1bHQgUmF0ZQ0KDQpVbmxpa2UgYSBzdGF0aWMgcmVwb3J0LCB0aGVzZSB2YWx1ZXMgdXBkYXRlIGluc3RhbnRseSB3aGVuZXZlciBmaWx0ZXJzIGFyZSBjaGFuZ2VkLlRoZSB2YWx1ZSBib3hlcyBwcm92aWRlIHVzZXJzIHdpdGggYW4gaW1tZWRpYXRlIG92ZXJ2aWV3IG9mIHRoZSBzZWxlY3RlZCBib3Jyb3dlciBwb3B1bGF0aW9uIGJlZm9yZSB0aGV5IGV4YW1pbmUgdGhlIGRldGFpbGVkIHZpc3VhbGl6YXRpb25zLiBGb3IgZXhhbXBsZSwgbmFycm93aW5nIHRoZSBjcmVkaXQgc2NvcmUgcmFuZ2UgaW1tZWRpYXRlbHkgY2hhbmdlcyB0aGUgcmVwb3J0ZWQgZGVmYXVsdCByYXRlLCBhbGxvd2luZyB1c2VycyB0byBvYnNlcnZlIGhvdyBib3Jyb3dlciByaXNrIHZhcmllcyBhY3Jvc3MgZGlmZmVyZW50IGNyZWRpdCBwcm9maWxlcy4NCg0KIyMgTnVtYmVyIG9mIEJvcnJvd2VycyBieSBEZWZhdWx0IFN0YXR1cw0KDQpUaGUgZmlyc3QgdmlzdWFsaXphdGlvbiBjb21wYXJlcyB0aGUgbnVtYmVyIG9mIGJvcnJvd2VycyB3aG8gc3VjY2Vzc2Z1bGx5IHJlcGFpZCB0aGVpciBsb2FucyB3aXRoIHRob3NlIHdobyBkZWZhdWx0ZWQuIFRoZSBkYXNoYm9hcmQgc2hvd3MgdGhhdCB0aGUgbWFqb3JpdHkgb2YgYm9ycm93ZXJzIHN1Y2Nlc3NmdWxseSByZXBheSB0aGVpciBsb2Fucywgd2hpbGUgYXBwcm94aW1hdGVseSBvbmUtdGhpcmQgZXhwZXJpZW5jZSBkZWZhdWx0LiBBbHRob3VnaCBkZWZhdWx0IGJvcnJvd2VycyByZXByZXNlbnQgdGhlIHNtYWxsZXIgZ3JvdXAsIHRoZXkgYWNjb3VudCBmb3IgYSBzdWJzdGFudGlhbCBwb3J0aW9uIG9mIHRoZSBvdmVyYWxsIGJvcnJvd2VyIHBvcHVsYXRpb24uIFRoaXMgaGlnaGxpZ2h0cyB0aGUgaW1wb3J0YW5jZSBvZiBpZGVudGlmeWluZyBjaGFyYWN0ZXJpc3RpY3MgYXNzb2NpYXRlZCB3aXRoIGRlZmF1bHQgYmVmb3JlIGxvYW5zIGFyZSBhcHByb3ZlZC4gVGhlIGJhciBjaGFydCBlc3RhYmxpc2hlcyB0aGUgYmFzZWxpbmUgZGlzdHJpYnV0aW9uIG9mIGxvYW4gb3V0Y29tZXMgYW5kIHByb3ZpZGVzIGNvbnRleHQgZm9yIGludGVycHJldGluZyB0aGUgcmVtYWluaW5nIHZpc3VhbGl6YXRpb25zLg0KDQojIyBDcmVkaXQgU2NvcmUgYnkgRGVmYXVsdCBTdGF0dXMNCg0KVGhlIGJveHBsb3QgY29tcGFyZXMgdGhlIGRpc3RyaWJ1dGlvbiBvZiBjcmVkaXQgc2NvcmVzIGZvciBkZWZhdWx0IGFuZCBub24tZGVmYXVsdCBib3Jyb3dlcnMuDQoNClNldmVyYWwgaW1wb3J0YW50IG9ic2VydmF0aW9ucyBlbWVyZ2UuIEJvcnJvd2VycyB3aG8gc3VjY2Vzc2Z1bGx5IHJlcGF5IHRoZWlyIGxvYW5zIGdlbmVyYWxseSBoYXZlIGhpZ2hlciBjcmVkaXQgc2NvcmVzIHRoYW4gYm9ycm93ZXJzIHdobyBkZWZhdWx0LiBUaGUgbWVkaWFuIGNyZWRpdCBzY29yZSBvZiBub24tZGVmYXVsdCBib3Jyb3dlcnMgaXMgc3Vic3RhbnRpYWxseSBoaWdoZXIgdGhhbiB0aGF0IG9mIGRlZmF1bHQgYm9ycm93ZXJzLiBBbHRob3VnaCB0aGUgdHdvIGRpc3RyaWJ1dGlvbnMgb3ZlcmxhcCwgYm9ycm93ZXJzIHdpdGggbG93ZXIgY3JlZGl0IHNjb3JlcyBhcHBlYXIgY29uc2lkZXJhYmx5IG1vcmUgbGlrZWx5IHRvIGRlZmF1bHQuIFRoZXNlIGZpbmRpbmdzIHN1cHBvcnQgdGhlIHdpZGVseSBhY2NlcHRlZCBwcmluY2lwbGUgdGhhdCBjcmVkaXQgc2NvcmUgaXMgb25lIG9mIHRoZSBzdHJvbmdlc3QgaW5kaWNhdG9ycyBvZiBib3Jyb3dlciByZWxpYWJpbGl0eS4gQ3JlZGl0IHNjb3JlIGFwcGVhcnMgdG8gc2VwYXJhdGUgdGhlIHR3byBib3Jyb3dlciBncm91cHMgbW9yZSBjbGVhcmx5IHRoYW4gdGhlIHJlbWFpbmluZyBmaW5hbmNpYWwgdmFyaWFibGVzIGRpc3BsYXllZCBpbiB0aGUgZGFzaGJvYXJkLg0KDQojIyBMb2FuIEFtb3VudCBEaXN0cmlidXRpb24gYnkgRGVmYXVsdCBTdGF0dXMNCg0KVGhlIGhpc3RvZ3JhbSBjb21wYXJlcyB0aGUgZGlzdHJpYnV0aW9uIG9mIGxvYW4gYW1vdW50cyBiZXR3ZWVuIGRlZmF1bHQgYW5kIG5vbi1kZWZhdWx0IGJvcnJvd2Vycy4NCg0KVGhlIHR3byBkaXN0cmlidXRpb25zIG92ZXJsYXAgY29uc2lkZXJhYmx5LiBCb3Jyb3dlcnMgZnJvbSBib3RoIHJlcGF5bWVudCBncm91cHMgcmVxdWVzdCBzaW1pbGFyIGxvYW4gYW1vdW50cyBhY3Jvc3MgbXVjaCBvZiB0aGUgb2JzZXJ2ZWQgcmFuZ2UuIEFsdGhvdWdoIGNlcnRhaW4gbG9hbiByYW5nZXMgY29udGFpbiBzbGlnaHRseSBoaWdoZXIgY29uY2VudHJhdGlvbnMgb2YgZGVmYXVsdCBib3Jyb3dlcnMsIGxvYW4gYW1vdW50IGFsb25lIGRvZXMgbm90IGFwcGVhciBzdWZmaWNpZW50IGZvciBkaXN0aW5ndWlzaGluZyBib3Jyb3dlcnMgd2hvIGV2ZW50dWFsbHkgZGVmYXVsdC4gSW5zdGVhZCwgbG9hbiBhbW91bnQgc2hvdWxkIGJlIGludGVycHJldGVkIHRvZ2V0aGVyIHdpdGggb3RoZXIgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzLCBzdWNoIGFzIGNyZWRpdCBzY29yZSBhbmQgZW1wbG95bWVudCBzdGF0dXMuIFRoaXMgdmlzdWFsaXphdGlvbiBkZW1vbnN0cmF0ZXMgdGhhdCBmaW5hbmNpYWwgcmlzayBkZXBlbmRzIG9uIG11bHRpcGxlIGZhY3RvcnMgcmF0aGVyIHRoYW4gYW55IHNpbmdsZSB2YXJpYWJsZS4NCg0KIyMgRGVmYXVsdCBSYXRlIGJ5IEVtcGxveW1lbnQgU3RhdHVzDQoNClRoZSBlbXBsb3ltZW50IHN0YXR1cyBjaGFydCBwcm92aWRlcyBhbm90aGVyIHBlcnNwZWN0aXZlIG9uIGJvcnJvd2VyIHJpc2suDQoNClJhdGhlciB0aGFuIGZvY3VzaW5nIG9uIGJvcnJvd2VyIGNyZWRpdHdvcnRoaW5lc3MgYWxvbmUsIHRoaXMgdmlzdWFsaXphdGlvbiBjb21wYXJlcyB0aGUgcGVyY2VudGFnZSBvZiBkZWZhdWx0IGJvcnJvd2VycyBhY3Jvc3MgZGlmZmVyZW50IGVtcGxveW1lbnQgY2F0ZWdvcmllcy4gRW1wbG95bWVudCBzdGF0dXMgbWF5IGluZmx1ZW5jZSBhIGJvcnJvd2VyJ3MgYWJpbGl0eSB0byBtYWtlIGNvbnNpc3RlbnQgbG9hbiBwYXltZW50cyBiZWNhdXNlIGluZGl2aWR1YWxzIHdpdGggc3RhYmxlIGVtcGxveW1lbnQgb2Z0ZW4gaGF2ZSBtb3JlIHByZWRpY3RhYmxlIGluY29tZS4gVGhlIGNoYXJ0IGFsbG93cyB1c2VycyB0byBkZXRlcm1pbmUgd2hldGhlciBjZXJ0YWluIGVtcGxveW1lbnQgZ3JvdXBzIGV4aGliaXQgcmVsYXRpdmVseSBoaWdoZXIgZGVmYXVsdCByYXRlcyBhZnRlciBhY2NvdW50aW5nIGZvciB0aGUgc2VsZWN0ZWQgZGFzaGJvYXJkIGZpbHRlcnMuIENvbWJpbmVkIHdpdGggY3JlZGl0IHNjb3JlLCBlbXBsb3ltZW50IHN0YXR1cyBwcm92aWRlcyBhIG1vcmUgY29tcGxldGUgdW5kZXJzdGFuZGluZyBvZiBib3Jyb3dlciByaXNrLg0KDQojIyBJbnRlcmFjdGl2ZSBEYXRhIHRhYmxlDQoNClRoZSBkYXRhIHRhYmxlIGFsbG93cyB1c2VycyB0byBpbnNwZWN0IGluZGl2aWR1YWwgYm9ycm93ZXIgcmVjb3JkcyBhZnRlciBhcHBseWluZyBmaWx0ZXJzLiBVbmxpa2UgdGhlIHN1bW1hcnkgc3RhdGlzdGljcyBhbmQgdmlzdWFsaXphdGlvbnMsIHdoaWNoIHByb3ZpZGUgYWdncmVnYXRlZCBpbmZvcm1hdGlvbiwgdGhlIGRhdGEgdGFibGUgcHJlc2VudHMgdGhlIHVuZGVybHlpbmcgb2JzZXJ2YXRpb25zIHVzZWQgaW4gdGhlIGFuYWx5c2lzLg0KDQpVc2VycyBjYW4gc2VhcmNoLCBzb3J0LCBhbmQgZmlsdGVyIHRoZSByZWNvcmRzIHRvIGludmVzdGlnYXRlIHNwZWNpZmljIGJvcnJvd2VyIHByb2ZpbGVzIGFuZCBiZXR0ZXIgdW5kZXJzdGFuZCB0aGUgZmFjdG9ycyBhc3NvY2lhdGVkIHdpdGggbG9hbiBkZWZhdWx0LiBUaGlzIGZlYXR1cmUgZW5oYW5jZXMgdHJhbnNwYXJlbmN5IGFuZCBzdXBwb3J0cyBkZXRhaWxlZCBleHBsb3JhdGlvbiBvZiB0aGUgZGF0YXNldC4NCg0KIyBLZXkgRmluZGluZ3MNCg0KU2V2ZXJhbCBpbXBvcnRhbnQgaW5zaWdodHMgZW1lcmdlIGZyb20gdGhlIGRhc2hib2FyZC4NCg0KKiBBcHByb3hpbWF0ZWx5IDcwJSBvZiBib3Jyb3dlcnMgc3VjY2Vzc2Z1bGx5IHJlcGF5IHRoZWlyIGxvYW5zLCB3aGlsZSByb3VnaGx5IDMwJSBkZWZhdWx0Lg0KKiBDcmVkaXQgc2NvcmUgYXBwZWFycyB0byBiZSBvbmUgb2YgdGhlIHN0cm9uZ2VzdCBjaGFyYWN0ZXJpc3RpY3MgYXNzb2NpYXRlZCB3aXRoIGJvcnJvd2VyIGRlZmF1bHQuDQoqIEJvcnJvd2VycyB3aXRoIGxvd2VyIGNyZWRpdCBzY29yZXMgY29uc2lzdGVudGx5IGV4aGliaXQgaGlnaGVyIGRlZmF1bHQgcmlzay4NCiogTG9hbiBhbW91bnQgYWxvbmUgcHJvdmlkZXMgcmVsYXRpdmVseSBsaW1pdGVkIGluZm9ybWF0aW9uIHJlZ2FyZGluZyByZXBheW1lbnQgb3V0Y29tZXMgYmVjYXVzZSBkZWZhdWx0IGFuZCBub24tZGVmYXVsdCBib3Jyb3dlcnMgZXhoaWJpdCBzaW1pbGFyIGxvYW4gZGlzdHJpYnV0aW9ucy4NCiogRW1wbG95bWVudCBzdGF0dXMgY29udHJpYnV0ZXMgYWRkaXRpb25hbCBpbmZvcm1hdGlvbiB0aGF0IG1heSBoZWxwIGV4cGxhaW4gYm9ycm93ZXIgcmlzay4NCiogSW50ZXJhY3RpdmUgZmlsdGVyaW5nIGFsbG93cyB1c2VycyB0byBpbnZlc3RpZ2F0ZSBib3Jyb3dlciBiZWhhdmlvciBhY3Jvc3MgbWFueSBkZW1vZ3JhcGhpYyBhbmQgZmluYW5jaWFsIHN1Ymdyb3Vwcy4NCg0KVGhlc2UgZmluZGluZ3MgZGVtb25zdHJhdGUgdGhhdCBib3Jyb3dlciBjcmVkaXR3b3J0aGluZXNzIGlzIG1vcmUgaW5mb3JtYXRpdmUgdGhhbiBsb2FuIHNpemUgd2hlbiBhc3Nlc3NpbmcgZGVmYXVsdCByaXNrLiBUaGUgZGFzaGJvYXJkIGVuYWJsZXMgdXNlcnMgdG8gZXhwbG9yZSB0aGVzZSByZWxhdGlvbnNoaXBzIGludGVyYWN0aXZlbHkgcmF0aGVyIHRoYW4gcmVseWluZyBzb2xlbHkgb24gc3RhdGljIHN1bW1hcnkgc3RhdGlzdGljcywgbWFraW5nIGl0IGEgdmFsdWFibGUgdG9vbCBmb3IgdW5kZXJzdGFuZGluZyBib3Jyb3dlciBiZWhhdmlvciBhbmQgc3VwcG9ydGluZyBkYXRhLWRyaXZlbiBsZW5kaW5nIGRlY2lzaW9ucy4NCg0KIyBCdXNpbmVzcyBJbXBsaWNhdGlvbnMgYW5kIFJlY29tbWVuZGF0aW9ucw0KDQpUaGUgZmluZGluZ3MgZnJvbSB0aGlzIGRhc2hib2FyZCBoYXZlIHNldmVyYWwgcHJhY3RpY2FsIGltcGxpY2F0aW9ucyBmb3IgZmluYW5jaWFsIGluc3RpdHV0aW9ucyBhbmQgbGVuZGluZyBvcmdhbml6YXRpb25zLiBBbHRob3VnaCB0aGUgZGFzaGJvYXJkIGlzIGRlc2lnbmVkIHByaW1hcmlseSBhcyBhbiBleHBsb3JhdG9yeSBkYXRhIGFuYWx5c2lzIHRvb2wgcmF0aGVyIHRoYW4gYSBwcmVkaWN0aXZlIG1vZGVsLCBpdCBoaWdobGlnaHRzIGJvcnJvd2VyIGNoYXJhY3RlcmlzdGljcyB0aGF0IG1heSBhc3Npc3QgaW4gaW1wcm92aW5nIGxlbmRpbmcgZGVjaXNpb25zIGFuZCBtYW5hZ2luZyBmaW5hbmNpYWwgcmlzay4NCg0KVGhlIHZpc3VhbGl6YXRpb25zIHN1Z2dlc3QgdGhhdCBjcmVkaXQgc2NvcmUgaXMgb25lIG9mIHRoZSBzdHJvbmdlc3QgaW5kaWNhdG9ycyBvZiBsb2FuIGRlZmF1bHQuIEJvcnJvd2VycyB3aXRoIGxvd2VyIGNyZWRpdCBzY29yZXMgY29uc2lzdGVudGx5IGRlbW9uc3RyYXRlIGhpZ2hlciBkZWZhdWx0IHJhdGVzIHRoYW4gYm9ycm93ZXJzIHdpdGggc3Ryb25nZXIgY3JlZGl0IGhpc3Rvcmllcy4gVGhpcyBmaW5kaW5nIHN1cHBvcnRzIGN1cnJlbnQgbGVuZGluZyBwcmFjdGljZXMgaW4gd2hpY2ggY3JlZGl0IHNjb3JlcyBhcmUgdXNlZCBhcyBhIG1ham9yIGNvbXBvbmVudCBvZiBjcmVkaXQgYXBwcm92YWwgYW5kIHJpc2sgYXNzZXNzbWVudC4NCg0KVGhlIGRhc2hib2FyZCBhbHNvIGluZGljYXRlcyB0aGF0IGxvYW4gYW1vdW50IGFsb25lIGlzIG5vdCBhIHN0cm9uZyBwcmVkaWN0b3Igb2YgZGVmYXVsdC4gVGhlIHN1YnN0YW50aWFsIG92ZXJsYXAgYmV0d2VlbiB0aGUgbG9hbiBhbW91bnQgZGlzdHJpYnV0aW9ucyBvZiBkZWZhdWx0IGFuZCBub24tZGVmYXVsdCBib3Jyb3dlcnMgc3VnZ2VzdHMgdGhhdCBsZW5kZXJzIHNob3VsZCBhdm9pZCBtYWtpbmcgbGVuZGluZyBkZWNpc2lvbnMgYmFzZWQgc29sZWx5IG9uIHRoZSBzaXplIG9mIHRoZSByZXF1ZXN0ZWQgbG9hbi4gSW5zdGVhZCwgbG9hbiBhbW91bnQgc2hvdWxkIGJlIGV2YWx1YXRlZCBhbG9uZ3NpZGUgYWRkaXRpb25hbCBib3Jyb3dlciBjaGFyYWN0ZXJpc3RpY3MsIGluY2x1ZGluZyBjcmVkaXQgaGlzdG9yeSwgZW1wbG95bWVudCBzdGF0dXMsIGluY29tZSBzdGFiaWxpdHksIGFuZCBleGlzdGluZyBmaW5hbmNpYWwgb2JsaWdhdGlvbnMuDQoNCkVtcGxveW1lbnQgc3RhdHVzIHByb3ZpZGVzIGFub3RoZXIgdXNlZnVsIHBlcnNwZWN0aXZlIG9uIGJvcnJvd2VyIHJpc2suIEFsdGhvdWdoIGVtcGxveW1lbnQgc3RhdHVzIGFsb25lIGRvZXMgbm90IGRldGVybWluZSByZXBheW1lbnQgYmVoYXZpb3IsIGJvcnJvd2VycyB3aXRoIHN0YWJsZSBlbXBsb3ltZW50IGdlbmVyYWxseSBoYXZlIG1vcmUgY29uc2lzdGVudCBpbmNvbWUgc291cmNlcywgd2hpY2ggbWF5IHJlZHVjZSB0aGUgbGlrZWxpaG9vZCBvZiBkZWZhdWx0LiBDb21iaW5pbmcgZW1wbG95bWVudCBpbmZvcm1hdGlvbiB3aXRoIGNyZWRpdC1yZWxhdGVkIHZhcmlhYmxlcyBhbGxvd3MgbGVuZGVycyB0byBkZXZlbG9wIGEgbW9yZSBjb21wcmVoZW5zaXZlIHVuZGVyc3RhbmRpbmcgb2YgYm9ycm93ZXIgcmlzay4NCg0KVGhlIGludGVyYWN0aXZlIG5hdHVyZSBvZiB0aGUgZGFzaGJvYXJkIGFsbG93cyBkZWNpc2lvbiBtYWtlcnMgdG8gaW52ZXN0aWdhdGUgYm9ycm93ZXIgYmVoYXZpb3IgdW5kZXIgZGlmZmVyZW50IGZpbHRlcmluZyBjb25kaXRpb25zLiBMb2FuIG9mZmljZXJzLCBmaW5hbmNpYWwgYW5hbHlzdHMsIGFuZCBtYW5hZ2VycyBjYW4gcXVpY2tseSBleGFtaW5lIHNwZWNpZmljIGJvcnJvd2VyIGdyb3VwcyB3aXRob3V0IGdlbmVyYXRpbmcgc2VwYXJhdGUgcmVwb3J0cywgbWFraW5nIHRoZSBkYXNoYm9hcmQgYSBwcmFjdGljYWwgdG9vbCBmb3IgZXhwbG9yYXRvcnkgYW5hbHlzaXMgYW5kIGNvbW11bmljYXRpb24uDQoNCkJhc2VkIG9uIHRoZSBmaW5kaW5ncyBwcmVzZW50ZWQgaW4gdGhpcyBwcm9qZWN0LCB0aGUgZm9sbG93aW5nIHJlY29tbWVuZGF0aW9ucyBhcmUgcHJvcG9zZWQ6DQoNCiogQ29udGludWUgdXNpbmcgY3JlZGl0IHNjb3JlIGFzIGEgcHJpbWFyeSBpbmRpY2F0b3Igd2hlbiBldmFsdWF0aW5nIGxvYW4gYXBwbGljYXRpb25zLg0KKiBDb25zaWRlciBtdWx0aXBsZSBib3Jyb3dlciBjaGFyYWN0ZXJpc3RpY3Mgc2ltdWx0YW5lb3VzbHkgcmF0aGVyIHRoYW4gcmVseWluZyBvbiBhIHNpbmdsZSB2YXJpYWJsZS4NCiogVXNlIGludGVyYWN0aXZlIGRhc2hib2FyZHMgZHVyaW5nIGNyZWRpdCByaXNrIHJldmlld3MgdG8gc3VwcG9ydCBkYXRhLWRyaXZlbiBkZWNpc2lvbiBtYWtpbmcuDQoqIEluY29ycG9yYXRlIGFkZGl0aW9uYWwgZmluYW5jaWFsIHZhcmlhYmxlcywgc3VjaCBhcyBhbm51YWwgaW5jb21lLCBkZWJ0LXRvLWluY29tZSByYXRpbywgcGF5bWVudCBoaXN0b3J5LCBhbmQgbG9hbiBwdXJwb3NlLCBpbiBmdXR1cmUgYW5hbHlzZXMgdG8gaW1wcm92ZSB1bmRlcnN0YW5kaW5nIG9mIGJvcnJvd2VyIGJlaGF2aW9yLg0KKiBEZXZlbG9wIHByZWRpY3RpdmUgbWFjaGluZSBsZWFybmluZyBvciBzdGF0aXN0aWNhbCBtb2RlbHMgdXNpbmcgdGhlc2UgdmFyaWFibGVzIHRvIGVzdGltYXRlIHRoZSBwcm9iYWJpbGl0eSBvZiBsb2FuIGRlZmF1bHQgZm9yIG5ldyBhcHBsaWNhbnRzLg0KDQojIExpbWl0YXRpb25zDQoNClNldmVyYWwgbGltaXRhdGlvbnMgc2hvdWxkIGJlIGNvbnNpZGVyZWQgd2hlbiBpbnRlcnByZXRpbmcgdGhlIHJlc3VsdHMgb2YgdGhpcyBwcm9qZWN0Lg0KDQpGaXJzdCwgdGhlIGRhc2hib2FyZCBpcyBpbnRlbmRlZCBmb3IgZXhwbG9yYXRvcnkgZGF0YSBhbmFseXNpcyByYXRoZXIgdGhhbiBwcmVkaWN0aXZlIG1vZGVsaW5nLiBBbHRob3VnaCBpdCByZXZlYWxzIGltcG9ydGFudCByZWxhdGlvbnNoaXBzIGJldHdlZW4gYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFuZCBsb2FuIGRlZmF1bHQsIGl0IGRvZXMgbm90IGVzdGltYXRlIHRoZSBwcm9iYWJpbGl0eSB0aGF0IGFuIGluZGl2aWR1YWwgYm9ycm93ZXIgd2lsbCBkZWZhdWx0Lg0KDQpTZWNvbmQsIHRoZSBhbmFseXNpcyBpcyBiYXNlZCBvbiBhIHNpbmdsZSBkYXRhc2V0IGNvbnRhaW5pbmcgYXBwcm94aW1hdGVseSAxLDAwMCBib3Jyb3dlciByZWNvcmRzLiBUaGUgcmVzdWx0cyBtYXkgbm90IGZ1bGx5IHJlcHJlc2VudCBhbGwgYm9ycm93ZXIgcG9wdWxhdGlvbnMgb3IgbGVuZGluZyBpbnN0aXR1dGlvbnMuIERpZmZlcmVudCBmaW5hbmNpYWwgb3JnYW5pemF0aW9ucyBtYXkgc2VydmUgY3VzdG9tZXJzIHdpdGggZGlmZmVyZW50IGRlbW9ncmFwaGljIGFuZCBmaW5hbmNpYWwgY2hhcmFjdGVyaXN0aWNzLg0KDQpUaGlyZCwgdGhlIGRhc2hib2FyZCBmb2N1c2VzIG9uIGEgbGltaXRlZCBudW1iZXIgb2YgYm9ycm93ZXIgdmFyaWFibGVzLiBPdGhlciBmYWN0b3JzIHRoYXQgY29tbW9ubHkgaW5mbHVlbmNlIGRlZmF1bHQgcmlzayBzdWNoIGFzIGFubnVhbCBpbmNvbWUsIGRlYnQtdG8taW5jb21lIHJhdGlvLCBwYXltZW50IGhpc3RvcnksIGludGVyZXN0IHJhdGUsIGxvYW4gcHVycG9zZSwgb3IgbWFjcm9lY29ub21pYyBjb25kaXRpb25zIGFyZSBub3QgaW5jbHVkZWQgaW4gdGhpcyBkYXRhc2V0LiBJbmNvcnBvcmF0aW5nIHRoZXNlIHZhcmlhYmxlcyBjb3VsZCBwcm92aWRlIGEgbW9yZSBjb21wbGV0ZSB1bmRlcnN0YW5kaW5nIG9mIGJvcnJvd2VyIGJlaGF2aW9yLg0KDQpGaW5hbGx5LCB0aGUgb2JzZXJ2ZWQgcmVsYXRpb25zaGlwcyBkZXNjcmliZSBhc3NvY2lhdGlvbnMgcmF0aGVyIHRoYW4gY2F1c2FsIGVmZmVjdHMuIFdoaWxlIGJvcnJvd2VycyB3aXRoIGxvd2VyIGNyZWRpdCBzY29yZXMgZXhoaWJpdCBoaWdoZXIgZGVmYXVsdCByYXRlcywgdGhlIGRhc2hib2FyZCBhbG9uZSBjYW5ub3QgZXN0YWJsaXNoIHRoYXQgbG93IGNyZWRpdCBzY29yZXMgZGlyZWN0bHkgY2F1c2UgbG9hbiBkZWZhdWx0Lg0KDQpEZXNwaXRlIHRoZXNlIGxpbWl0YXRpb25zLCB0aGUgZGFzaGJvYXJkIHByb3ZpZGVzIGFuIGVmZmVjdGl2ZSBmcmFtZXdvcmsgZm9yIGludGVyYWN0aXZlIGV4cGxvcmF0aW9uIG9mIGJvcnJvd2VyIHJpc2sgYW5kIGRlbW9uc3RyYXRlcyBob3cgdmlzdWFsaXphdGlvbiB0ZWNobmlxdWVzIGNhbiBzdXBwb3J0IGZpbmFuY2lhbCBkZWNpc2lvbi1tYWtpbmcuDQoNCiMgQ29uY2x1c2lvbg0KDQpUaGlzIHByb2plY3QgZGV2ZWxvcGVkIGFuIGludGVyYWN0aXZlIFNoaW55IGRhc2hib2FyZCB0byBpbnZlc3RpZ2F0ZSBmYWN0b3JzIGFzc29jaWF0ZWQgd2l0aCBsb2FuIGRlZmF1bHQgcmlzayB1c2luZyB0aGUgQmFuayBMb2FuIERlZmF1bHQgRGF0YXNldC4gVGhlIGRhc2hib2FyZCBjb21iaW5lcyBpbnRlcmFjdGl2ZSBmaWx0ZXJpbmcsIHN1bW1hcnkgdmFsdWUgYm94ZXMsIG11bHRpcGxlIHZpc3VhbGl6YXRpb25zLCBhbmQgYW4gaW50ZXJhY3RpdmUgZGF0YSB0YWJsZSB0byBwcm92aWRlIHVzZXJzIHdpdGggYW4gaW50dWl0aXZlIHBsYXRmb3JtIGZvciBleHBsb3JpbmcgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzIGFuZCByZXBheW1lbnQgb3V0Y29tZXMuDQoNClRoZSBhbmFseXNpcyBkZW1vbnN0cmF0ZXMgdGhhdCBjcmVkaXQgc2NvcmUgaXMgb25lIG9mIHRoZSBtb3N0IGluZm9ybWF0aXZlIGluZGljYXRvcnMgb2YgYm9ycm93ZXIgcmlzay4gQm9ycm93ZXJzIHdpdGggbG93ZXIgY3JlZGl0IHNjb3JlcyBnZW5lcmFsbHkgZXhoaWJpdCBoaWdoZXIgZGVmYXVsdCByYXRlcyB0aGFuIGJvcnJvd2VycyB3aXRoIHN0cm9uZ2VyIGNyZWRpdCBoaXN0b3JpZXMuIEluIGNvbnRyYXN0LCBsb2FuIGFtb3VudCBhbG9uZSBwcm92aWRlcyByZWxhdGl2ZWx5IGxpbWl0ZWQgaW5mb3JtYXRpb24gYmVjYXVzZSBib3RoIGRlZmF1bHQgYW5kIG5vbi1kZWZhdWx0IGJvcnJvd2VycyBib3Jyb3cgc2ltaWxhciBhbW91bnRzIGFjcm9zcyBtdWNoIG9mIHRoZSBvYnNlcnZlZCByYW5nZS4gRW1wbG95bWVudCBzdGF0dXMgY29udHJpYnV0ZXMgYWRkaXRpb25hbCBjb250ZXh0IGFuZCBjYW4gYmUgZXhwbG9yZWQgaW50ZXJhY3RpdmVseSBhbG9uZ3NpZGUgb3RoZXIgYm9ycm93ZXIgY2hhcmFjdGVyaXN0aWNzLg0KDQpBIG1ham9yIHN0cmVuZ3RoIG9mIHRoZSBkYXNoYm9hcmQgaXMgaXRzIGludGVyYWN0aXZpdHkuIFVzZXJzIGNhbiBkeW5hbWljYWxseSBmaWx0ZXIgdGhlIGJvcnJvd2VyIHBvcHVsYXRpb24gYnkgY3JlZGl0IHNjb3JlLCBsb2FuIGFtb3VudCwgZ2VuZGVyLCBhbmQgZW1wbG95bWVudCBzdGF0dXMgd2hpbGUgaW1tZWRpYXRlbHkgb2JzZXJ2aW5nIGhvdyB0aGUgc3VtbWFyeSBpbmRpY2F0b3JzIGFuZCB2aXN1YWxpemF0aW9ucyBjaGFuZ2UuIFRoaXMgZmxleGliaWxpdHkgYWxsb3dzIHVzZXJzIHRvIGV4cGxvcmUgYm9ycm93ZXIgYmVoYXZpb3IgZnJvbSBtdWx0aXBsZSBwZXJzcGVjdGl2ZXMgYW5kIGJldHRlciB1bmRlcnN0YW5kIHRoZSByZWxhdGlvbnNoaXBzIGFtb25nIGRlbW9ncmFwaGljIGNoYXJhY3RlcmlzdGljcywgZmluYW5jaWFsIHZhcmlhYmxlcywgYW5kIGxvYW4gcmVwYXltZW50IG91dGNvbWVzLg0KDQpPdmVyYWxsLCB0aGUgZGFzaGJvYXJkIHN1Y2Nlc3NmdWxseSBhZGRyZXNzZXMgdGhlIHByb2plY3QncyBjZW50cmFsIHF1ZXN0aW9uOiAqV2hvIGlzIG1vc3QgbGlrZWx5IHRvIGRlZmF1bHQgb24gYSBsb2FuPyoNCg0KVGhlIHJlc3VsdHMgc3VnZ2VzdCB0aGF0IGJvcnJvd2VycyB3aXRoIHdlYWtlciBjcmVkaXQgcHJvZmlsZXMgYXJlIGdlbmVyYWxseSBtb3JlIGxpa2VseSB0byBkZWZhdWx0LCB3aGlsZSBsb2FuIGFtb3VudCBieSBpdHNlbGYgcHJvdmlkZXMgcmVsYXRpdmVseSBsaXR0bGUgcHJlZGljdGl2ZSBpbmZvcm1hdGlvbi4gQnkgdHJhbnNmb3JtaW5nIHJhdyBib3Jyb3dlciBkYXRhIGludG8gaW50ZXJhY3RpdmUgdmlzdWFsaXphdGlvbnMsIHRoZSBkYXNoYm9hcmQgZW5hYmxlcyBmaW5hbmNpYWwgaW5zdGl0dXRpb25zIHRvIGJldHRlciB1bmRlcnN0YW5kIGJvcnJvd2VyIHJpc2ssIGNvbW11bmljYXRlIGFuYWx5dGljYWwgZmluZGluZ3MsIGFuZCBzdXBwb3J0IG1vcmUgaW5mb3JtZWQgbGVuZGluZyBkZWNpc2lvbnMuDQoNClRoaXMgcHJvamVjdCBkZW1vbnN0cmF0ZXMgdGhlIHZhbHVlIG9mIGludGVyYWN0aXZlIGRhdGEgdmlzdWFsaXphdGlvbiBpbiBmaW5hbmNpYWwgYW5hbHl0aWNzIGFuZCBpbGx1c3RyYXRlcyBob3cgbW9kZXJuIGRhc2hib2FyZCB0ZWNobm9sb2dpZXMgY2FuIHRyYW5zZm9ybSBjb21wbGV4IGRhdGFzZXRzIGludG8gcHJhY3RpY2FsIGRlY2lzaW9uLXN1cHBvcnQgdG9vbHMu</div>
 
 
 </div>
